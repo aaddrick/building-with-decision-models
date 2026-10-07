@@ -1,0 +1,7 @@
+interface:
+  display_name: "Building with Decision Models"
+  short_description: "Typed decisions with calibrated confidence, on any provider"
+  default_prompt: "Use $building-with-decision-models to design or review this decision-model integration."
+
+policy:
+  allow_implicit_invocation: true

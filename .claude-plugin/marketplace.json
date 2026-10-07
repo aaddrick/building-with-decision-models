@@ -1,0 +1,27 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-marketplace.json",
+  "name": "building-with-decision-models",
+  "description": "Unofficial skill for building with decision models (Jev, Clef, pplx-decider, ai_decide, Ollama): typed decisions, calibrated confidence, provider differences, and community prior art with a code sketch per pattern.",
+  "owner": {
+    "name": "aaddrick",
+    "url": "https://github.com/aaddrick"
+  },
+  "plugins": [
+    {
+      "name": "building-with-decision-models",
+      "description": "Teaches Claude the /v1/systemone decision-model contract, when to use Choice, Score, or Noul, how to route on confidence, how providers differ, how to change models safely, and where to find prior art before building.",
+      "source": "./",
+      "category": "development",
+      "keywords": [
+        "decision-models",
+        "system-one",
+        "jev",
+        "clef",
+        "ai-decide",
+        "ollama",
+        "classification",
+        "structured-output"
+      ]
+    }
+  ]
+}

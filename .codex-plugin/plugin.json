@@ -1,0 +1,41 @@
+{
+  "name": "building-with-decision-models",
+  "version": "0.1.0",
+  "description": "Unofficial Codex skill for building with decision models (System One models) such as TypeSafe Jev, Cloudflare Clef, Perplexity pplx-decider, Databricks ai_decide, and local Ollama models: typed Choice/Score/Noul decisions, calibrated-confidence routing, provider differences, and community prior art sorted by implementation shape.",
+  "author": {
+    "name": "aaddrick",
+    "url": "https://github.com/aaddrick"
+  },
+  "homepage": "https://github.com/aaddrick/building-with-decision-models",
+  "repository": "https://github.com/aaddrick/building-with-decision-models",
+  "license": "MIT",
+  "keywords": [
+    "decision-models",
+    "system-one",
+    "jev",
+    "clef",
+    "ai-decide",
+    "ollama",
+    "classification",
+    "structured-output",
+    "codex"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "Building with Decision Models",
+    "shortDescription": "Typed decisions with calibrated confidence, on any provider",
+    "longDescription": "Write correct decision-model integrations on Jev, Clef, pplx-decider, Databricks ai_decide, or a local Ollama model: pick Choice, Score, or Noul; batch speculative questions in one call; route on confidence; handle provider differences and re-tune thresholds when models change; and find prior art, each pattern with a code sketch, before designing something new.",
+    "developerName": "aaddrick",
+    "category": "Coding",
+    "capabilities": [
+      "Instructions"
+    ],
+    "websiteURL": "https://github.com/aaddrick/building-with-decision-models",
+    "defaultPrompt": [
+      "Use building-with-decision-models to replace this LLM classification call with a decision model.",
+      "Find prior art for a decision-model design before we build it.",
+      "Help me move this Jev integration to another provider without breaking its thresholds."
+    ],
+    "brandColor": "#B45309"
+  }
+}
