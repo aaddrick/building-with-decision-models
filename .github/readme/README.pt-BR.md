@@ -77,17 +77,17 @@ A skill carrega sozinha quando você trabalha com código de modelos de decisão
 
 <img src="../assets/plugin-marketplace/step-2.png" alt="A caixa de diálogo Add marketplace. Uma caixa e uma seta âmbar apontam para Add from a repository." width="100%">
 
-**Passo 3.** Digite `aaddrick/building-with-decision-models`. Deixe **Sync automatically** ligado para o plugin se atualizar junto com este repositório. Depois selecione **Sync**.
+**Passo 3.** Digite `aaddrick/building-with-decision-models` ou a URL completa do GitHub, depois selecione **Sync**. Se a caixa de diálogo mostrar **Sync automatically**, deixe ligado para o plugin se atualizar junto com este repositório.
 
-<img src="../assets/plugin-marketplace/step-3.png" alt="A caixa de diálogo Add marketplace com aaddrick/building-with-decision-models no campo URL e Sync automatically ligado. Uma caixa e uma seta âmbar apontam para o campo URL, a chave e o botão Sync." width="100%">
+<img src="../assets/plugin-marketplace/step-3.png" alt="A caixa de diálogo Add marketplace com https://github.com/aaddrick/building-with-decision-models no campo URL. Uma caixa e uma seta âmbar apontam para o campo URL e o botão Sync." width="100%">
 
 **Passo 4.** Selecione **Add** ao lado de **Building with decision models**.
 
 <img src="../assets/plugin-marketplace/step-4.png" alt="A lista Discover mostrando Building with decision models. Uma caixa e uma seta âmbar apontam para o botão Add." width="100%">
 
-**Passo 5.** O Claude confirma que o plugin foi instalado. Ele também aparece no app para desktop e no Cowork da mesma conta.
+**Passo 5.** O botão muda para **Added** e a lista mostra a versão. O plugin também aparece no app para desktop e no Cowork da mesma conta.
 
-<img src="../assets/plugin-marketplace/step-5.png" alt="A página do plugin Building with decision models com um aviso de que ele está instalado e pronto para uso. Uma caixa e uma seta âmbar apontam para o aviso." width="100%">
+<img src="../assets/plugin-marketplace/step-5.png" alt="A lista Discover mostrando Building with decision models v0.1.0 com um botão Added. Uma caixa e uma seta âmbar apontam para Added." width="100%">
 
 </details>
 

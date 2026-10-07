@@ -77,17 +77,17 @@ La skill si carica da sola quando lavori su codice per modelli decisionali. Per 
 
 <img src="../assets/plugin-marketplace/step-2.png" alt="La finestra di dialogo Add marketplace. Un riquadro e una freccia color ambra indicano Add from a repository." width="100%">
 
-**Passo 3.** Inserisci `aaddrick/building-with-decision-models`. Lascia attivo **Sync automatically** così il plugin si aggiorna insieme a questo repository. Poi seleziona **Sync**.
+**Passo 3.** Inserisci `aaddrick/building-with-decision-models` o l'URL GitHub completo, poi seleziona **Sync**. Se la finestra mostra **Sync automatically**, lascialo attivo così il plugin si aggiorna insieme a questo repository.
 
-<img src="../assets/plugin-marketplace/step-3.png" alt="La finestra di dialogo Add marketplace con aaddrick/building-with-decision-models nel campo URL e Sync automatically attivo. Un riquadro e una freccia color ambra indicano il campo URL, l'interruttore e il pulsante Sync." width="100%">
+<img src="../assets/plugin-marketplace/step-3.png" alt="La finestra di dialogo Add marketplace con https://github.com/aaddrick/building-with-decision-models nel campo URL. Un riquadro e una freccia color ambra indicano il campo URL e il pulsante Sync." width="100%">
 
 **Passo 4.** Seleziona **Add** accanto a **Building with decision models**.
 
 <img src="../assets/plugin-marketplace/step-4.png" alt="L'elenco Discover con Building with decision models. Un riquadro e una freccia color ambra indicano il suo pulsante Add." width="100%">
 
-**Passo 5.** Claude conferma che il plugin è installato. Compare anche nell'app desktop e in Cowork con lo stesso account.
+**Passo 5.** Il pulsante diventa **Added** e l'elenco mostra la versione. Il plugin compare anche nell'app desktop e in Cowork con lo stesso account.
 
-<img src="../assets/plugin-marketplace/step-5.png" alt="La pagina del plugin Building with decision models con un avviso che è installato e pronto all'uso. Un riquadro e una freccia color ambra indicano l'avviso." width="100%">
+<img src="../assets/plugin-marketplace/step-5.png" alt="L'elenco Discover con Building with decision models v0.1.0 e un pulsante Added. Un riquadro e una freccia color ambra indicano Added." width="100%">
 
 </details>
 

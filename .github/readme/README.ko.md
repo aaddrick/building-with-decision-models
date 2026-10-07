@@ -77,17 +77,17 @@ claude plugin install building-with-decision-models@building-with-decision-model
 
 <img src="../assets/plugin-marketplace/step-2.png" alt="Add marketplace 대화상자. 호박색 상자와 화살표가 Add from a repository를 가리킵니다." width="100%">
 
-**3단계.** `aaddrick/building-with-decision-models`를 입력하세요. **Sync automatically**를 켜 두면 이 저장소가 업데이트될 때 플러그인도 업데이트됩니다. 그런 다음 **Sync**를 선택하세요.
+**3단계.** `aaddrick/building-with-decision-models` 또는 전체 GitHub URL을 입력한 다음 **Sync**를 선택하세요. 대화상자에 **Sync automatically**가 보이면 켜 두세요. 이 저장소가 업데이트될 때 플러그인도 업데이트됩니다.
 
-<img src="../assets/plugin-marketplace/step-3.png" alt="URL 필드에 aaddrick/building-with-decision-models를 입력하고 Sync automatically를 켠 Add marketplace 대화상자. 호박색 상자와 화살표가 URL 필드, 토글, Sync 버튼을 가리킵니다." width="100%">
+<img src="../assets/plugin-marketplace/step-3.png" alt="URL 필드에 https://github.com/aaddrick/building-with-decision-models를 입력한 Add marketplace 대화상자. 호박색 상자와 화살표가 URL 필드와 Sync 버튼을 가리킵니다." width="100%">
 
 **4단계.** **Building with decision models** 옆의 **Add**를 선택하세요.
 
 <img src="../assets/plugin-marketplace/step-4.png" alt="Building with decision models가 보이는 Discover 목록. 호박색 상자와 화살표가 Add 버튼을 가리킵니다." width="100%">
 
-**5단계.** 플러그인이 설치되었다는 알림이 나타납니다. 같은 계정의 데스크톱 앱과 Cowork에도 나타납니다.
+**5단계.** 버튼이 **Added**로 바뀌고 목록에 버전이 표시됩니다. 같은 계정의 데스크톱 앱과 Cowork에도 플러그인이 나타납니다.
 
-<img src="../assets/plugin-marketplace/step-5.png" alt="Building with decision models 플러그인 페이지와 설치되어 사용할 준비가 되었다는 알림. 호박색 상자와 화살표가 알림을 가리킵니다." width="100%">
+<img src="../assets/plugin-marketplace/step-5.png" alt="Building with decision models v0.1.0과 Added 버튼이 보이는 Discover 목록. 호박색 상자와 화살표가 Added를 가리킵니다." width="100%">
 
 </details>
 

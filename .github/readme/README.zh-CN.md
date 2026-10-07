@@ -77,17 +77,17 @@ claude plugin install building-with-decision-models@building-with-decision-model
 
 <img src="../assets/plugin-marketplace/step-2.png" alt="Add marketplace 对话框。琥珀色方框和箭头指向 Add from a repository。" width="100%">
 
-**第 3 步。** 输入 `aaddrick/building-with-decision-models`。保持 **Sync automatically** 开启，插件会随本仓库一起更新。然后选择 **Sync**。
+**第 3 步。** 输入 `aaddrick/building-with-decision-models` 或完整的 GitHub URL，然后选择 **Sync**。如果对话框里有 **Sync automatically**，保持开启，插件会随本仓库一起更新。
 
-<img src="../assets/plugin-marketplace/step-3.png" alt="Add marketplace 对话框，URL 栏中填入 aaddrick/building-with-decision-models，Sync automatically 已开启。琥珀色方框和箭头指向 URL 栏、开关和 Sync 按钮。" width="100%">
+<img src="../assets/plugin-marketplace/step-3.png" alt="Add marketplace 对话框，URL 栏中填入 https://github.com/aaddrick/building-with-decision-models。琥珀色方框和箭头指向 URL 栏和 Sync 按钮。" width="100%">
 
 **第 4 步。** 选择 **Building with decision models** 旁边的 **Add**。
 
 <img src="../assets/plugin-marketplace/step-4.png" alt="Discover 列表中显示 Building with decision models。琥珀色方框和箭头指向它的 Add 按钮。" width="100%">
 
-**第 5 步。** Claude 提示插件已安装。同一账号下的桌面应用和 Cowork 中也会出现它。
+**第 5 步。** 按钮变为 **Added**，列表中显示版本号。同一账号下的桌面应用和 Cowork 中也会出现该插件。
 
-<img src="../assets/plugin-marketplace/step-5.png" alt="Building with decision models 插件页面，提示已安装并可以使用。琥珀色方框和箭头指向该提示。" width="100%">
+<img src="../assets/plugin-marketplace/step-5.png" alt="Discover 列表显示 Building with decision models v0.1.0 和 Added 按钮。琥珀色方框和箭头指向 Added。" width="100%">
 
 </details>
 

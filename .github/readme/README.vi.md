@@ -77,17 +77,17 @@ Skill tự tải khi bạn làm việc với code dùng decision model. Muốn t
 
 <img src="../assets/plugin-marketplace/step-2.png" alt="Hộp thoại Add marketplace. Khung và mũi tên màu hổ phách chỉ vào Add from a repository." width="100%">
 
-**Bước 3.** Nhập `aaddrick/building-with-decision-models`. Giữ **Sync automatically** bật để plugin cập nhật khi repo này cập nhật. Sau đó chọn **Sync**.
+**Bước 3.** Nhập `aaddrick/building-with-decision-models` hoặc URL GitHub đầy đủ, rồi chọn **Sync**. Nếu hộp thoại có **Sync automatically**, hãy giữ nó bật để plugin cập nhật khi repo này cập nhật.
 
-<img src="../assets/plugin-marketplace/step-3.png" alt="Hộp thoại Add marketplace với aaddrick/building-with-decision-models trong ô URL và Sync automatically đang bật. Khung và mũi tên màu hổ phách chỉ vào ô URL, công tắc và nút Sync." width="100%">
+<img src="../assets/plugin-marketplace/step-3.png" alt="Hộp thoại Add marketplace với https://github.com/aaddrick/building-with-decision-models trong ô URL. Khung và mũi tên màu hổ phách chỉ vào ô URL và nút Sync." width="100%">
 
 **Bước 4.** Chọn **Add** cạnh **Building with decision models**.
 
 <img src="../assets/plugin-marketplace/step-4.png" alt="Danh sách Discover hiển thị Building with decision models. Khung và mũi tên màu hổ phách chỉ vào nút Add của nó." width="100%">
 
-**Bước 5.** Claude báo plugin đã được cài. Plugin cũng xuất hiện trong ứng dụng desktop và Cowork trên cùng tài khoản.
+**Bước 5.** Nút chuyển thành **Added** và danh sách hiện phiên bản. Plugin cũng xuất hiện trong ứng dụng desktop và Cowork trên cùng tài khoản.
 
-<img src="../assets/plugin-marketplace/step-5.png" alt="Trang plugin Building with decision models với thông báo đã cài xong và sẵn sàng dùng. Khung và mũi tên màu hổ phách chỉ vào thông báo." width="100%">
+<img src="../assets/plugin-marketplace/step-5.png" alt="Danh sách Discover hiện Building with decision models v0.1.0 với nút Added. Khung và mũi tên màu hổ phách chỉ vào Added." width="100%">
 
 </details>
 

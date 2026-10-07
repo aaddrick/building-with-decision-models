@@ -77,17 +77,17 @@ claude plugin install building-with-decision-models@building-with-decision-model
 
 <img src="../assets/plugin-marketplace/step-2.png" alt="Add marketplace ダイアログ。琥珀色の枠と矢印が Add from a repository を指しています。" width="100%">
 
-**ステップ 3.** `aaddrick/building-with-decision-models` を入力します。**Sync automatically** をオンのままにしておくと、このリポジトリの更新に合わせてプラグインも更新されます。続けて **Sync** を選びます。
+**ステップ 3.** `aaddrick/building-with-decision-models` か GitHub の URL 全体を入力し、**Sync** を選びます。ダイアログに **Sync automatically** があればオンのままにしておくと、このリポジトリの更新に合わせてプラグインも更新されます。
 
-<img src="../assets/plugin-marketplace/step-3.png" alt="URL 欄に aaddrick/building-with-decision-models を入力し、Sync automatically をオンにした Add marketplace ダイアログ。琥珀色の枠と矢印が URL 欄、トグル、Sync ボタンを指しています。" width="100%">
+<img src="../assets/plugin-marketplace/step-3.png" alt="URL 欄に https://github.com/aaddrick/building-with-decision-models を入力した Add marketplace ダイアログ。琥珀色の枠と矢印が URL 欄と Sync ボタンを指しています。" width="100%">
 
 **ステップ 4.** **Building with decision models** の横の **Add** を選びます。
 
 <img src="../assets/plugin-marketplace/step-4.png" alt="Building with decision models が表示された Discover の一覧。琥珀色の枠と矢印がその Add ボタンを指しています。" width="100%">
 
-**ステップ 5.** プラグインのインストール完了が表示されます。同じアカウントのデスクトップアプリと Cowork にも表示されます。
+**ステップ 5.** ボタンが **Added** に変わり、一覧にバージョンが表示されます。同じアカウントのデスクトップアプリと Cowork にもプラグインが表示されます。
 
-<img src="../assets/plugin-marketplace/step-5.png" alt="Building with decision models のプラグインページと、インストールが完了して使用可能になったという通知。琥珀色の枠と矢印が通知を指しています。" width="100%">
+<img src="../assets/plugin-marketplace/step-5.png" alt="Building with decision models v0.1.0 と Added ボタンが表示された Discover 一覧。琥珀色の枠と矢印が Added を指しています。" width="100%">
 
 </details>
 

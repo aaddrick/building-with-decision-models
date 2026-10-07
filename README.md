@@ -77,17 +77,17 @@ The skill loads on its own when you work on decision-model code. To load it by h
 
 <img src=".github/assets/plugin-marketplace/step-2.png" alt="The Add marketplace dialog. An amber box and arrow point at Add from a repository." width="100%">
 
-**Step 3.** Enter `aaddrick/building-with-decision-models`. Leave **Sync automatically** on so the plugin updates when this repository does. Then select **Sync**.
+**Step 3.** Enter `aaddrick/building-with-decision-models` or the full GitHub URL, then select **Sync**. If the dialog shows **Sync automatically**, leave it on so the plugin updates when this repository does.
 
-<img src=".github/assets/plugin-marketplace/step-3.png" alt="The Add marketplace dialog with aaddrick/building-with-decision-models in the URL field and Sync automatically on. An amber box and arrow point at the URL field, the toggle, and the Sync button." width="100%">
+<img src=".github/assets/plugin-marketplace/step-3.png" alt="The Add marketplace dialog with https://github.com/aaddrick/building-with-decision-models in the URL field. An amber box and arrow point at the URL field and the Sync button." width="100%">
 
 **Step 4.** Select **Add** next to **Building with decision models**.
 
 <img src=".github/assets/plugin-marketplace/step-4.png" alt="The Discover list showing Building with decision models. An amber box and arrow point at its Add button." width="100%">
 
-**Step 5.** Claude confirms the plugin is installed. It also appears in the desktop app and Cowork on the same account.
+**Step 5.** The button changes to **Added**, and the listing shows the version. The plugin also appears in the desktop app and Cowork on the same account.
 
-<img src=".github/assets/plugin-marketplace/step-5.png" alt="The Building with decision models plugin page with a notice that it is installed and ready to use. An amber box and arrow point at the notice." width="100%">
+<img src=".github/assets/plugin-marketplace/step-5.png" alt="The Discover list showing Building with decision models v0.1.0 with an Added button. An amber box and arrow point at Added." width="100%">
 
 </details>
 
