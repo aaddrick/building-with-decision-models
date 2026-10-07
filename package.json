@@ -1,0 +1,26 @@
+{
+  "name": "building-with-decision-models",
+  "version": "0.1.0",
+  "description": "Unofficial skill for building with decision models (System One models) such as TypeSafe Jev, Cloudflare Clef, Perplexity pplx-decider, Databricks ai_decide, and local Ollama models: typed Choice/Score/Noul decisions, calibrated-confidence routing, provider differences, and community prior art sorted by implementation shape.",
+  "license": "MIT",
+  "author": "aaddrick (https://github.com/aaddrick)",
+  "homepage": "https://github.com/aaddrick/building-with-decision-models",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aaddrick/building-with-decision-models.git"
+  },
+  "keywords": [
+    "pi-package",
+    "agent-skill",
+    "decision-models",
+    "system-one"
+  ],
+  "files": [
+    "skills/"
+  ],
+  "pi": {
+    "skills": [
+      "./skills"
+    ]
+  }
+}

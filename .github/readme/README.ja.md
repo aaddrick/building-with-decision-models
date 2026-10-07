@@ -7,6 +7,7 @@
 <p align="center">
   <a href="../../LICENSE"><img src="https://img.shields.io/github/license/aaddrick/building-with-decision-models?style=flat" alt="License"></a>
   <a href="../workflows/checks.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaddrick/building-with-decision-models/checks.yml?label=checks&style=flat" alt="Checks"></a>
+  <a href="../workflows/plugin-load-check.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaddrick/building-with-decision-models/plugin-load-check.yml?label=plugin%20loads&style=flat" alt="Plugin loads"></a>
 </p>
 
 <p align="center">
@@ -26,7 +27,7 @@
 > [!NOTE]
 > これは非公式のコミュニティ製スキルです。TypeSafe AI、Cloudflare、Perplexity、OpenAI、Databricks、AWS、Ollama をはじめ、扱っているどのプロバイダーも、作成、レビュー、推奨していません。[公式 TypeSafe スキルとの関係](#公式-typesafe-スキルとの関係) も参照してください。
 
-コーディングエージェントは、判断モデルをチャットモデルの 1 つとして扱います。このスキルは、判断モデルに合わせた設計をエージェントに教えます。型付きの質問、較正された確信度、プロバイダーごとの違い、そして仕組みごとに整理した 450 を超えるコミュニティプロジェクトへのリンクと、パターンごとのコードスケッチです。Claude Code、Codex、Antigravity CLI、Muse、Muse Code にインストールできます。
+コーディングエージェントは、判断モデルをチャットモデルの 1 つとして扱います。このスキルは、判断モデルに合わせた設計をエージェントに教えます。型付きの質問、較正された確信度、プロバイダーごとの違い、そして仕組みごとに整理した 450 を超えるコミュニティプロジェクトへのリンクと、パターンごとのコードスケッチです。Claude Code、Claude Desktop と claude.ai、Codex、Antigravity CLI、Cursor、Devin CLI、Factory Droid、Gemini CLI、GitHub Copilot CLI、Grok Build CLI、Hermes Agent、Kimi Code、OpenCode、Pi、Qwen Code、Muse、Muse Code にインストールできます。
 
 判断モデルは [System One](https://docs.typesafe.ai/concepts/system-one) モデルとも呼ばれ、文章は書きません。コンテンツと型付きの質問のセットを送ると、各質問に値と確率で答えます。通常は数百ミリ秒以内に返ります。
 
@@ -92,7 +93,9 @@ claude plugin install building-with-decision-models@building-with-decision-model
 </details>
 
 <details>
-<summary><strong>Codex</strong></summary>
+<summary><strong>Codex CLI と Codex アプリ</strong></summary>
+
+マーケットプレイスを追加して、プラグインをインストールします。
 
 ```bash
 codex plugin marketplace add aaddrick/building-with-decision-models
@@ -101,6 +104,14 @@ codex plugin marketplace add aaddrick/building-with-decision-models
 ```bash
 codex plugin add building-with-decision-models@building-with-decision-models
 ```
+
+インストールされたか確認します。
+
+```bash
+codex plugin list
+```
+
+Codex アプリは同じ Codex の設定を読むので、プラグインはアプリにも表示されます。サイドバーの **Plugins** を開いて確認してください。
 
 新しいスレッドを始めます。タスクが合えば、Codex がスキルを読み込みます。手動で読み込むには、次のように入力します。
 
@@ -130,6 +141,284 @@ agy plugin list
 ```
 
 Gemini CLI から移行しましたか？ `agy plugin import gemini` でこの拡張機能を移した場合も、上のインストールコマンドを実行してください。インポートしたコピーが最新のものに置き換わります。
+
+</details>
+
+<details>
+<summary><strong>Cursor</strong></summary>
+
+Cursor の Agent チャットで、次のように入力します。
+
+```
+/add-plugin https://github.com/aaddrick/building-with-decision-models
+```
+
+または **Customize** を開き、**From GitHub Repository** からプラグインをインポートして、`https://github.com/aaddrick/building-with-decision-models` を入力します。続けて **Building with Decision Models** の横の **Install** を選び、プロジェクトかユーザーのスコープを選びます。
+
+GitHub の URL から追加したプラグインは、古いコミットのまま動かなくなることがあります。確実に更新したい場合は、代わりに Cursor のローカルプラグインフォルダにリポジトリをクローンします。
+
+```bash
+git clone https://github.com/aaddrick/building-with-decision-models.git ~/.cursor/plugins/local/building-with-decision-models
+```
+
+そのあと **Developer: Reload Window** を実行します。クローン先はそのフォルダの中にしてください。シンボリックリンクは使えません。Cursor は、フォルダの外を指すシンボリックリンクを読み飛ばします。更新するときは、そこで `git pull` を実行し、もう一度ウィンドウを再読み込みします。
+
+インストールされたか確認します。**Customize**、**Skills** の順に開きます。`building-with-decision-models` が **Agent Decides** の下に表示されます。
+
+Cursor はタスクに合うときにスキルを読み込みます。手動で読み込むには、次のように入力します。
+
+```
+/building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Devin CLI</strong></summary>
+
+プラグインを管理するには、Devin にサインインしたアカウントが必要です。まだサインインしていない場合は、先に `devin auth login` を実行してください。
+
+```bash
+devin plugins install aaddrick/building-with-decision-models
+```
+
+インストールされたか確認します。
+
+```bash
+devin plugins info building-with-decision-models
+```
+
+新しいセッションを始めます。Devin はタスクに合うときにスキルを読み込みます。手動で読み込むには、次のように入力します。
+
+```
+/building-with-decision-models:building-with-decision-models
+```
+
+あとで更新するには、次を実行します。
+
+```bash
+devin plugins update building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Factory Droid</strong></summary>
+
+```bash
+droid plugin marketplace add https://github.com/aaddrick/building-with-decision-models
+```
+
+```bash
+droid plugin install building-with-decision-models@building-with-decision-models
+```
+
+インストールされたか確認します。
+
+```bash
+droid plugin list
+```
+
+Droid のセッションで `/skills` を実行し、Plugins タブを開くとスキルが表示されます。Droid はタスクに合うときにスキルを読み込みます。手動で読み込むには、プロンプトの先頭に `/building-with-decision-models` と入力します。
+
+あとで更新するには、次を実行します。
+
+```bash
+droid plugin marketplace update building-with-decision-models
+droid plugin update building-with-decision-models@building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Gemini CLI</strong></summary>
+
+```bash
+gemini extensions install https://github.com/aaddrick/building-with-decision-models
+```
+
+インストールされたか確認します。
+
+```bash
+gemini extensions list
+```
+
+出力の **Agent skills** の下に `building-with-decision-models` が表示されます。新しいセッションを始めます。Gemini CLI はタスクに合うときにスキルを読み込み、その前に承認を求めます。手動で読み込むには、`building-with-decision-models` スキルを使うよう Gemini に頼みます。
+
+あとで更新するには、次を実行します。
+
+```bash
+gemini extensions update building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>GitHub Copilot CLI</strong></summary>
+
+```bash
+copilot plugin marketplace add aaddrick/building-with-decision-models
+```
+
+```bash
+copilot plugin install building-with-decision-models@building-with-decision-models
+```
+
+インストールされたか確認します。
+
+```bash
+copilot skill list
+```
+
+`building-with-decision-models` が「Plugin skills」の下に表示されます。Copilot はタスクに合うときにスキルを読み込みます。手動で読み込むには、`building-with-decision-models` スキルを使うよう Copilot に頼みます。
+
+</details>
+
+<details>
+<summary><strong>Grok Build CLI</strong></summary>
+
+```bash
+grok plugin install aaddrick/building-with-decision-models --trust
+```
+
+インストールされたか確認します。
+
+```bash
+grok inspect
+```
+
+`building-with-decision-models` が Skills の下に表示されます。新しいセッションを始めます。Grok はタスクに合うときにスキルを読み込みます。手動で読み込むには、次のように入力します。
+
+```
+/building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Hermes Agent</strong></summary>
+
+```bash
+hermes skills install aaddrick/building-with-decision-models/skills/building-with-decision-models
+```
+
+インストールされたか確認します。
+
+```bash
+hermes skills list
+```
+
+新しいセッションを始めます。Hermes はタスクに合うときにスキルを読み込みます。手動で読み込むには、次のように入力します。
+
+```
+/building-with-decision-models
+```
+
+代わりに、`hermes plugins install aaddrick/building-with-decision-models --enable` でプラグインとしてインストールすることもできます。ただしプラグインのスキルは自動では読み込まれず、毎回 `building-with-decision-models` スキルを読み込むよう Hermes に頼む必要があります。上の `skills install` の方法には、この制限がありません。
+
+</details>
+
+<details>
+<summary><strong>Kimi Code</strong></summary>
+
+Kimi Code の中で、次のように入力します。
+
+```
+/plugins install https://github.com/aaddrick/building-with-decision-models
+```
+
+スキルが読み込まれるよう、新しいセッションを始めます。
+
+```
+/new
+```
+
+インストールされたか確認します。プラグインがエラーなしで有効と表示されます。
+
+```
+/plugins info building-with-decision-models
+```
+
+Kimi はタスクに合うときにスキルを読み込みます。手動で読み込むには、次のように入力します。
+
+```
+/skill:building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>OpenCode</strong></summary>
+
+OpenCode は `~/.config/opencode/skills/` からスキルを自動で読み込みます。このリポジトリをクローンし、スキルのフォルダをそこへリンクします。
+
+```bash
+git clone https://github.com/aaddrick/building-with-decision-models.git ~/.local/share/building-with-decision-models
+mkdir -p ~/.config/opencode/skills
+ln -s ~/.local/share/building-with-decision-models/skills/building-with-decision-models ~/.config/opencode/skills/building-with-decision-models
+```
+
+Windows では、リンクせずにフォルダをコピーしてください。
+
+インストールされたか確認します。
+
+```bash
+opencode debug skill | grep '"name": "building-with-decision-models"'
+```
+
+OpenCode を再起動します。OpenCode はタスクに合うときにスキルを読み込みます。手動で読み込むには、スキルツールで `building-with-decision-models` を読み込むよう頼みます。
+
+更新するには、`git -C ~/.local/share/building-with-decision-models pull` を実行します。
+
+</details>
+
+<details>
+<summary><strong>Pi</strong></summary>
+
+```bash
+pi install https://github.com/aaddrick/building-with-decision-models
+```
+
+インストールされたか確認します。
+
+```bash
+pi list
+```
+
+新しいセッションを始めます。Pi はタスクに合うときにスキルを読み込みます。手動で読み込むには、次のように入力します。
+
+```
+/skill:building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Qwen Code</strong></summary>
+
+```bash
+qwen extensions install https://github.com/aaddrick/building-with-decision-models:building-with-decision-models
+```
+
+末尾の `:building-with-decision-models` が、インストールするプラグインを指定します。付けない場合は、Qwen がどれにするか尋ねます。
+
+インストールされたか確認します。
+
+```bash
+qwen extensions list
+```
+
+`building-with-decision-models` が `Skills:` の下に表示されます。Qwen Code を再起動します。Qwen Code はタスクに合うときにスキルを読み込みます。手動で読み込むには、次のように入力します。
+
+```
+/building-with-decision-models:building-with-decision-models
+```
+
+あとで更新するには、次を実行します。
+
+```bash
+qwen extensions update building-with-decision-models
+```
 
 </details>
 
@@ -171,6 +460,14 @@ muse skills list
 
 ```
 /building-with-decision-models
+```
+
+プラグインとしてインストールするには、先に Muse Code の実験的なプラグイン機能をオンにします。Muse Code 1.4.2 では、プラグインは初期状態でオフです。
+
+```bash
+export MUSE_EXPERIMENTAL_PLUGINS=1
+muse plugins marketplace add building-with-decision-models aaddrick/building-with-decision-models
+muse plugins install building-with-decision-models@building-with-decision-models
 ```
 
 </details>

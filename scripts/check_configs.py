@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """Check every shipped manifest and the skill itself. Exit 1 on any failure.
 
-- Every JSON manifest parses, and the three plugin manifests agree on name and version.
+- Every JSON manifest parses.
+- Every manifest names the plugin `building-with-decision-models`, and every version
+  field (top level, `metadata`, and each marketplace entry) agrees. Copilot, Grok
+  and Antigravity show the root plugin.json, so a stale one is what users see.
 - Each SKILL.md has frontmatter with `name` and `description`, and the name matches its folder.
 - Every file the skill names (`providers/jev.md`, `models/clef.md`, `prior-art/projects/gates.md`, ...) exists.
   Paths are relative to the skill root wherever they appear, so each one names exactly one file.
@@ -15,34 +18,56 @@ import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-SKILL_DIR = ROOT / "skills" / "building-with-decision-models"
+NAME = "building-with-decision-models"
+SKILL_DIR = ROOT / "skills" / NAME
 # Extra frontmatter keys each skill may carry, beyond name and description.
 EXTRA_KEYS = {SKILL_DIR.name: []}
 SCRIPT_REF = re.compile(r"scripts/([\w-]+\.py)")
-MANIFESTS = [
-    ROOT / ".claude-plugin" / "plugin.json",
-    ROOT / ".claude-plugin" / "marketplace.json",
-    ROOT / ".codex-plugin" / "plugin.json",
-    ROOT / "plugin.json",
+JSON_MANIFESTS = [
+    ".claude-plugin/plugin.json",
+    ".claude-plugin/marketplace.json",
+    ".codex-plugin/plugin.json",
+    ".cursor-plugin/plugin.json",
+    ".cursor-plugin/marketplace.json",
+    ".devin-plugin/plugin.json",
+    ".github/plugin/marketplace.json",
+    ".grok-plugin/marketplace.json",
+    ".kimi-plugin/plugin.json",
+    ".muse-plugin/plugin.json",
+    "gemini-extension.json",
+    "package.json",
+    "plugin.json",
 ]
 KEY_SHAPE = re.compile(r"apikey_[0-9a-f]{20,}")
 SKILL_REF = re.compile(r"`((?:[\w-]+/)*[\w.-]+\.md)`")
 
 errors: list[str] = []
+versions: dict[str, str] = {}
 
-parsed = {}
-for path in MANIFESTS:
+
+def note_version(where: str, value) -> None:
+    if value is not None:
+        versions[where] = str(value)
+
+
+for rel in JSON_MANIFESTS:
     try:
-        parsed[path] = json.loads(path.read_text(encoding="utf-8"))
+        data = json.loads((ROOT / rel).read_text(encoding="utf-8"))
     except (OSError, json.JSONDecodeError) as exc:
-        errors.append(f"{path.relative_to(ROOT)}: {exc}")
+        errors.append(f"{rel}: {exc}")
+        continue
+    if data.get("name") != NAME:
+        errors.append(f"{rel}: name is {data.get('name')!r}, expected {NAME!r}")
+    note_version(rel, data.get("version"))
+    note_version(f"{rel} metadata", (data.get("metadata") or {}).get("version"))
+    for entry in data.get("plugins", []):
+        if entry.get("name") != NAME:
+            errors.append(f"{rel}: plugin entry named {entry.get('name')!r}")
+        note_version(f"{rel} plugins[{entry.get('name')}]", entry.get("version"))
 
-plugins = [parsed.get(p) for p in (MANIFESTS[0], MANIFESTS[2], MANIFESTS[3])]
-if all(plugins):
-    if len({p["name"] for p in plugins}) != 1:
-        errors.append("plugin manifests disagree on name")
-    if len({p["version"] for p in plugins}) != 1:
-        errors.append("plugin manifests disagree on version")
+if len(set(versions.values())) > 1:
+    listing = "\n  ".join(f"{v}  {k}" for k, v in sorted(versions.items()))
+    errors.append(f"manifests disagree on version:\n  {listing}")
 
 for skill_dir, extra in EXTRA_KEYS.items():
     path = ROOT / "skills" / skill_dir / "SKILL.md"

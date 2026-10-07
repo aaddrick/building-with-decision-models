@@ -7,6 +7,7 @@
 <p align="center">
   <a href="../../LICENSE"><img src="https://img.shields.io/github/license/aaddrick/building-with-decision-models?style=flat" alt="License"></a>
   <a href="../workflows/checks.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaddrick/building-with-decision-models/checks.yml?label=checks&style=flat" alt="Checks"></a>
+  <a href="../workflows/plugin-load-check.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaddrick/building-with-decision-models/plugin-load-check.yml?label=plugin%20loads&style=flat" alt="Plugin loads"></a>
 </p>
 
 <p align="center">
@@ -26,7 +27,7 @@
 > [!NOTE]
 > 이 스킬은 비공식 커뮤니티 스킬입니다. TypeSafe AI, Cloudflare, Perplexity, OpenAI, Databricks, AWS, Ollama를 비롯해 이 스킬이 다루는 어떤 제공사도 만들거나 검토하거나 보증하지 않았습니다. [공식 TypeSafe 스킬과의 관계](#공식-typesafe-스킬과의-관계)를 참고하세요.
 
-코딩 에이전트는 결정 모델을 채팅 모델 하나쯤으로 다룹니다. 이 스킬은 에이전트가 결정 모델에 맞게 설계하도록 가르칩니다. 타입 있는 질문, 보정된 신뢰도, 제공사 사이의 차이, 그리고 동작 방식별로 정리한 450개가 넘는 커뮤니티 프로젝트 링크와 패턴별 코드 스케치를 담았습니다. Claude Code, Codex, Antigravity CLI, Muse, Muse Code에 설치할 수 있습니다.
+코딩 에이전트는 결정 모델을 채팅 모델 하나쯤으로 다룹니다. 이 스킬은 에이전트가 결정 모델에 맞게 설계하도록 가르칩니다. 타입 있는 질문, 보정된 신뢰도, 제공사 사이의 차이, 그리고 동작 방식별로 정리한 450개가 넘는 커뮤니티 프로젝트 링크와 패턴별 코드 스케치를 담았습니다. Claude Code, Claude Desktop과 claude.ai, Codex, Antigravity CLI, Cursor, Devin CLI, Factory Droid, Gemini CLI, GitHub Copilot CLI, Grok Build CLI, Hermes Agent, Kimi Code, OpenCode, Pi, Qwen Code, Muse, Muse Code에 설치할 수 있습니다.
 
 결정 모델은 [System One](https://docs.typesafe.ai/concepts/system-one) 모델이라고도 부르며, 글을 쓰지 않습니다. 콘텐츠와 타입 있는 질문 몇 개를 보내면, 각 질문에 값과 확률로 답합니다. 보통 수백 밀리초 이내에 끝납니다.
 
@@ -92,7 +93,9 @@ claude plugin install building-with-decision-models@building-with-decision-model
 </details>
 
 <details>
-<summary><strong>Codex</strong></summary>
+<summary><strong>Codex CLI와 Codex 앱</strong></summary>
+
+마켓플레이스를 추가하고 플러그인을 설치하세요.
 
 ```bash
 codex plugin marketplace add aaddrick/building-with-decision-models
@@ -101,6 +104,14 @@ codex plugin marketplace add aaddrick/building-with-decision-models
 ```bash
 codex plugin add building-with-decision-models@building-with-decision-models
 ```
+
+설치되었는지 확인하세요.
+
+```bash
+codex plugin list
+```
+
+Codex 앱은 같은 Codex 설정을 읽으므로 플러그인이 앱에도 나타납니다. 사이드바에서 **Plugins**를 열면 볼 수 있습니다.
 
 새 스레드를 시작하세요. 작업이 맞으면 Codex가 스킬을 로드합니다. 직접 로드하려면 다음을 입력하세요.
 
@@ -130,6 +141,284 @@ agy plugin list
 ```
 
 Gemini CLI에서 옮겨 오셨나요? `agy plugin import gemini`로 이 확장을 가져왔더라도 위의 설치 명령을 실행해서 현재 복사본이 가져온 복사본을 대체하게 하세요.
+
+</details>
+
+<details>
+<summary><strong>Cursor</strong></summary>
+
+Cursor Agent 채팅에서 다음을 입력하세요.
+
+```
+/add-plugin https://github.com/aaddrick/building-with-decision-models
+```
+
+또는 **Customize**를 열고 **From GitHub Repository**로 플러그인을 가져온 다음 `https://github.com/aaddrick/building-with-decision-models`를 입력하세요. 그런 다음 **Building with Decision Models** 옆의 **Install**을 선택하고 프로젝트 범위나 사용자 범위를 고르세요.
+
+GitHub URL로 추가한 플러그인은 오래된 커밋에 머물러 있을 수 있습니다. 안정적으로 업데이트하려면 대신 저장소를 Cursor의 로컬 플러그인 폴더에 클론하세요.
+
+```bash
+git clone https://github.com/aaddrick/building-with-decision-models.git ~/.cursor/plugins/local/building-with-decision-models
+```
+
+그런 다음 **Developer: Reload Window**를 실행하세요. 그 폴더에 클론하고, 심볼릭 링크로 연결하지 마세요. Cursor는 폴더 밖을 가리키는 심볼릭 링크를 건너뜁니다. 업데이트하려면 그곳에서 `git pull`을 실행하고 다시 창을 새로 불러오세요.
+
+설치되었는지 확인하세요. **Customize**를 연 다음 **Skills**를 여세요. `building-with-decision-models`가 **Agent Decides** 아래에 나타납니다.
+
+작업이 맞으면 Cursor가 스킬을 로드합니다. 직접 로드하려면 다음을 입력하세요.
+
+```
+/building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Devin CLI</strong></summary>
+
+Devin은 플러그인을 관리하려면 로그인한 계정이 필요합니다. 아직 로그인하지 않았다면 먼저 `devin auth login`을 실행하세요.
+
+```bash
+devin plugins install aaddrick/building-with-decision-models
+```
+
+설치되었는지 확인하세요.
+
+```bash
+devin plugins info building-with-decision-models
+```
+
+새 세션을 시작하세요. 작업이 맞으면 Devin이 스킬을 로드합니다. 직접 로드하려면 다음을 입력하세요.
+
+```
+/building-with-decision-models:building-with-decision-models
+```
+
+나중에 업데이트하려면 다음을 실행하세요.
+
+```bash
+devin plugins update building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Factory Droid</strong></summary>
+
+```bash
+droid plugin marketplace add https://github.com/aaddrick/building-with-decision-models
+```
+
+```bash
+droid plugin install building-with-decision-models@building-with-decision-models
+```
+
+설치되었는지 확인하세요.
+
+```bash
+droid plugin list
+```
+
+Droid 세션에서 `/skills`를 실행하고 Plugins 탭을 열면 스킬이 보입니다. 작업이 맞으면 Droid가 스킬을 로드합니다. 직접 로드하려면 프롬프트 맨 앞에 `/building-with-decision-models`를 입력하세요.
+
+나중에 업데이트하려면 다음을 실행하세요.
+
+```bash
+droid plugin marketplace update building-with-decision-models
+droid plugin update building-with-decision-models@building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Gemini CLI</strong></summary>
+
+```bash
+gemini extensions install https://github.com/aaddrick/building-with-decision-models
+```
+
+설치되었는지 확인하세요.
+
+```bash
+gemini extensions list
+```
+
+출력의 **Agent skills** 아래에 `building-with-decision-models`가 나열됩니다. 새 세션을 시작하세요. 작업이 맞으면 Gemini CLI가 스킬을 로드하며, 먼저 승인해 달라고 요청합니다. 직접 로드하려면 Gemini에게 `building-with-decision-models` 스킬을 사용하라고 요청하세요.
+
+나중에 업데이트하려면 다음을 실행하세요.
+
+```bash
+gemini extensions update building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>GitHub Copilot CLI</strong></summary>
+
+```bash
+copilot plugin marketplace add aaddrick/building-with-decision-models
+```
+
+```bash
+copilot plugin install building-with-decision-models@building-with-decision-models
+```
+
+설치되었는지 확인하세요.
+
+```bash
+copilot skill list
+```
+
+`building-with-decision-models`가 "Plugin skills" 아래에 표시됩니다. 작업이 맞으면 Copilot이 스킬을 로드합니다. 직접 로드하려면 Copilot에게 `building-with-decision-models` 스킬을 사용하라고 요청하세요.
+
+</details>
+
+<details>
+<summary><strong>Grok Build CLI</strong></summary>
+
+```bash
+grok plugin install aaddrick/building-with-decision-models --trust
+```
+
+설치되었는지 확인하세요.
+
+```bash
+grok inspect
+```
+
+`building-with-decision-models`가 Skills 아래에 나타납니다. 새 세션을 시작하세요. 작업이 맞으면 Grok이 스킬을 로드합니다. 직접 로드하려면 다음을 입력하세요.
+
+```
+/building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Hermes Agent</strong></summary>
+
+```bash
+hermes skills install aaddrick/building-with-decision-models/skills/building-with-decision-models
+```
+
+설치되었는지 확인하세요.
+
+```bash
+hermes skills list
+```
+
+새 세션을 시작하세요. 작업이 맞으면 Hermes가 스킬을 로드합니다. 직접 로드하려면 다음을 입력하세요.
+
+```
+/building-with-decision-models
+```
+
+대신 `hermes plugins install aaddrick/building-with-decision-models --enable`로 플러그인으로 설치할 수도 있습니다. 다만 플러그인 스킬은 저절로 로드되지 않습니다. 매번 Hermes에게 `building-with-decision-models` 스킬을 로드하라고 요청해야 합니다. 위의 `skills install` 방법에는 이런 제한이 없습니다.
+
+</details>
+
+<details>
+<summary><strong>Kimi Code</strong></summary>
+
+Kimi Code 안에서 다음을 입력하세요.
+
+```
+/plugins install https://github.com/aaddrick/building-with-decision-models
+```
+
+스킬이 로드되도록 새 세션을 시작하세요.
+
+```
+/new
+```
+
+설치되었는지 확인하세요. 플러그인이 오류 없이 활성화된 것으로 표시됩니다.
+
+```
+/plugins info building-with-decision-models
+```
+
+작업이 맞으면 Kimi가 스킬을 로드합니다. 직접 로드하려면 다음을 입력하세요.
+
+```
+/skill:building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>OpenCode</strong></summary>
+
+OpenCode는 `~/.config/opencode/skills/`에서 스킬을 알아서 불러옵니다. 이 저장소를 클론하고 스킬 폴더를 그곳에 연결하세요.
+
+```bash
+git clone https://github.com/aaddrick/building-with-decision-models.git ~/.local/share/building-with-decision-models
+mkdir -p ~/.config/opencode/skills
+ln -s ~/.local/share/building-with-decision-models/skills/building-with-decision-models ~/.config/opencode/skills/building-with-decision-models
+```
+
+Windows에서는 연결하지 말고 폴더를 복사하세요.
+
+설치되었는지 확인하세요.
+
+```bash
+opencode debug skill | grep '"name": "building-with-decision-models"'
+```
+
+OpenCode를 다시 시작하세요. 작업이 맞으면 OpenCode가 스킬을 로드합니다. 직접 로드하려면 skill 도구로 `building-with-decision-models`를 로드하라고 요청하세요.
+
+업데이트하려면 `git -C ~/.local/share/building-with-decision-models pull`을 실행하세요.
+
+</details>
+
+<details>
+<summary><strong>Pi</strong></summary>
+
+```bash
+pi install https://github.com/aaddrick/building-with-decision-models
+```
+
+설치되었는지 확인하세요.
+
+```bash
+pi list
+```
+
+새 세션을 시작하세요. 작업이 맞으면 Pi가 스킬을 로드합니다. 직접 로드하려면 다음을 입력하세요.
+
+```
+/skill:building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Qwen Code</strong></summary>
+
+```bash
+qwen extensions install https://github.com/aaddrick/building-with-decision-models:building-with-decision-models
+```
+
+`:building-with-decision-models` 접미사가 플러그인을 고릅니다. 빼면 Qwen이 하나를 고르라고 요청합니다.
+
+설치되었는지 확인하세요.
+
+```bash
+qwen extensions list
+```
+
+`building-with-decision-models`가 `Skills:` 아래에 나타납니다. Qwen Code를 다시 시작하세요. 작업이 맞으면 Qwen Code가 스킬을 로드합니다. 직접 로드하려면 다음을 입력하세요.
+
+```
+/building-with-decision-models:building-with-decision-models
+```
+
+나중에 업데이트하려면 다음을 실행하세요.
+
+```bash
+qwen extensions update building-with-decision-models
+```
 
 </details>
 
@@ -171,6 +460,14 @@ muse skills list
 
 ```
 /building-with-decision-models
+```
+
+대신 플러그인으로 설치하려면 먼저 Muse Code의 실험적 플러그인 기능을 켜세요. Muse Code 1.4.2에서는 플러그인이 기본적으로 꺼져 있습니다.
+
+```bash
+export MUSE_EXPERIMENTAL_PLUGINS=1
+muse plugins marketplace add building-with-decision-models aaddrick/building-with-decision-models
+muse plugins install building-with-decision-models@building-with-decision-models
 ```
 
 </details>

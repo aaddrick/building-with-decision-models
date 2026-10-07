@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "name": "building-with-decision-models",
+  "displayName": "Building with Decision Models",
+  "version": "0.1.0",
+  "description": "Unofficial skill for building with decision models (System One models) such as TypeSafe Jev, Cloudflare Clef, Perplexity pplx-decider, Databricks ai_decide, and local Ollama models: typed Choice/Score/Noul decisions, calibrated-confidence routing, provider differences, and community prior art sorted by implementation shape.",
+  "compat": {
+    "source": "native",
+    "manifestDir": ".muse-plugin"
+  },
+  "capabilities": {
+    "skills": [
+      {
+        "id": "building-with-decision-models",
+        "path": "skills/building-with-decision-models/SKILL.md"
+      }
+    ],
+    "commands": [],
+    "hooks": [],
+    "mcpServers": [],
+    "reminders": []
+  }
+}

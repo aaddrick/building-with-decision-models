@@ -7,6 +7,7 @@
 <p align="center">
   <a href="../../LICENSE"><img src="https://img.shields.io/github/license/aaddrick/building-with-decision-models?style=flat" alt="License"></a>
   <a href="../workflows/checks.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaddrick/building-with-decision-models/checks.yml?label=checks&style=flat" alt="Checks"></a>
+  <a href="../workflows/plugin-load-check.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaddrick/building-with-decision-models/plugin-load-check.yml?label=plugin%20loads&style=flat" alt="Plugin loads"></a>
 </p>
 
 <p align="center">
@@ -26,7 +27,7 @@
 > [!NOTE]
 > Đây là một skill không chính thức do cộng đồng làm. TypeSafe AI, Cloudflare, Perplexity, OpenAI, Databricks, AWS, Ollama và mọi nhà cung cấp khác mà nó đề cập đều không làm, không duyệt và không bảo trợ nó. Xem [Liên hệ với skill chính thức của TypeSafe](#liên-hệ-với-skill-chính-thức-của-typesafe).
 
-Các tác nhân lập trình đối xử với decision model như thêm một chat model nữa. Skill này dạy chúng thiết kế cho đúng loại model này: câu hỏi có kiểu, độ tin cậy đã hiệu chỉnh, khác biệt giữa các nhà cung cấp, và liên kết tới hơn 450 dự án cộng đồng, xếp theo cách chúng hoạt động, mỗi mẫu có một bản phác thảo code. Nó cài được trong Claude Code, Codex, Antigravity CLI, Muse và Muse Code.
+Các tác nhân lập trình đối xử với decision model như thêm một chat model nữa. Skill này dạy chúng thiết kế cho đúng loại model này: câu hỏi có kiểu, độ tin cậy đã hiệu chỉnh, khác biệt giữa các nhà cung cấp, và liên kết tới hơn 450 dự án cộng đồng, xếp theo cách chúng hoạt động, mỗi mẫu có một bản phác thảo code. Nó cài được trong Claude Code, Claude Desktop và claude.ai, Codex, Antigravity CLI, Cursor, Devin CLI, Factory Droid, Gemini CLI, GitHub Copilot CLI, Grok Build CLI, Hermes Agent, Kimi Code, OpenCode, Pi, Qwen Code, Muse và Muse Code.
 
 Một decision model, còn gọi là model [System One](https://docs.typesafe.ai/concepts/system-one), không viết văn bản. Bạn gửi cho nó một nội dung cùng một bộ câu hỏi có kiểu, và nó trả lời mỗi câu hỏi bằng một giá trị kèm xác suất, thường trong vài trăm mili giây hoặc ít hơn:
 
@@ -92,7 +93,9 @@ Skill tự tải khi bạn làm việc với code dùng decision model. Muốn t
 </details>
 
 <details>
-<summary><strong>Codex</strong></summary>
+<summary><strong>Codex CLI và Codex app</strong></summary>
+
+Thêm marketplace và cài plugin:
 
 ```bash
 codex plugin marketplace add aaddrick/building-with-decision-models
@@ -101,6 +104,14 @@ codex plugin marketplace add aaddrick/building-with-decision-models
 ```bash
 codex plugin add building-with-decision-models@building-with-decision-models
 ```
+
+Kiểm tra xem nó đã được cài chưa:
+
+```bash
+codex plugin list
+```
+
+Codex app đọc cùng cấu hình Codex, nên plugin cũng hiện ở đó. Mở **Plugins** trong thanh bên để xem.
 
 Mở một thread mới. Codex tải skill khi tác vụ phù hợp. Muốn tải thủ công, hãy gõ:
 
@@ -130,6 +141,284 @@ Bắt đầu một phiên mới. Antigravity CLI tải skill khi tác vụ phù 
 ```
 
 Chuyển từ Gemini CLI sang? Nếu `agy plugin import gemini` đã mang extension này qua, bạn vẫn nên chạy lệnh cài đặt ở trên để bản hiện tại thay thế bản đã import.
+
+</details>
+
+<details>
+<summary><strong>Cursor</strong></summary>
+
+Trong chat Cursor Agent, gõ:
+
+```
+/add-plugin https://github.com/aaddrick/building-with-decision-models
+```
+
+Hoặc mở **Customize**, nhập một plugin bằng **From GitHub Repository**, rồi điền `https://github.com/aaddrick/building-with-decision-models`. Sau đó chọn **Install** cạnh **Building with Decision Models** và chọn phạm vi dự án hoặc người dùng.
+
+Plugin thêm từ một URL GitHub có thể bị kẹt ở một commit cũ. Để cập nhật ổn định, hãy clone repository vào thư mục plugin cục bộ của Cursor:
+
+```bash
+git clone https://github.com/aaddrick/building-with-decision-models.git ~/.cursor/plugins/local/building-with-decision-models
+```
+
+Sau đó chạy **Developer: Reload Window**. Hãy clone vào thư mục đó, đừng tạo symlink tới nó: Cursor bỏ qua các symlink trỏ ra ngoài thư mục. Để cập nhật, chạy `git pull` ở đó rồi tải lại cửa sổ lần nữa.
+
+Kiểm tra xem nó đã được cài chưa: mở **Customize**, rồi **Skills**. `building-with-decision-models` hiện dưới **Agent Decides**.
+
+Cursor tải skill khi tác vụ phù hợp. Muốn tải thủ công, hãy gõ:
+
+```
+/building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Devin CLI</strong></summary>
+
+Devin cần một tài khoản đã đăng nhập để quản lý plugin. Nếu bạn chưa đăng nhập, hãy chạy `devin auth login` trước.
+
+```bash
+devin plugins install aaddrick/building-with-decision-models
+```
+
+Kiểm tra xem nó đã được cài chưa:
+
+```bash
+devin plugins info building-with-decision-models
+```
+
+Bắt đầu một phiên mới. Devin tải skill khi tác vụ phù hợp. Muốn tải thủ công, hãy gõ:
+
+```
+/building-with-decision-models:building-with-decision-models
+```
+
+Để cập nhật sau này:
+
+```bash
+devin plugins update building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Factory Droid</strong></summary>
+
+```bash
+droid plugin marketplace add https://github.com/aaddrick/building-with-decision-models
+```
+
+```bash
+droid plugin install building-with-decision-models@building-with-decision-models
+```
+
+Kiểm tra xem nó đã được cài chưa:
+
+```bash
+droid plugin list
+```
+
+Trong một phiên Droid, chạy `/skills` rồi mở tab Plugins để xem skill. Droid tải nó khi tác vụ phù hợp. Muốn tải thủ công, hãy gõ `/building-with-decision-models` ở đầu một prompt.
+
+Để cập nhật sau này:
+
+```bash
+droid plugin marketplace update building-with-decision-models
+droid plugin update building-with-decision-models@building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Gemini CLI</strong></summary>
+
+```bash
+gemini extensions install https://github.com/aaddrick/building-with-decision-models
+```
+
+Kiểm tra xem nó đã được cài chưa:
+
+```bash
+gemini extensions list
+```
+
+Kết quả liệt kê `building-with-decision-models` dưới **Agent skills**. Bắt đầu một phiên mới. Gemini CLI tải skill khi tác vụ phù hợp và yêu cầu bạn duyệt trước. Muốn tải thủ công, hãy yêu cầu Gemini dùng skill `building-with-decision-models`.
+
+Để cập nhật sau này:
+
+```bash
+gemini extensions update building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>GitHub Copilot CLI</strong></summary>
+
+```bash
+copilot plugin marketplace add aaddrick/building-with-decision-models
+```
+
+```bash
+copilot plugin install building-with-decision-models@building-with-decision-models
+```
+
+Kiểm tra xem nó đã được cài chưa:
+
+```bash
+copilot skill list
+```
+
+`building-with-decision-models` hiện dưới "Plugin skills". Copilot tải nó khi tác vụ phù hợp. Muốn tải thủ công, hãy yêu cầu Copilot dùng skill `building-with-decision-models`.
+
+</details>
+
+<details>
+<summary><strong>Grok Build CLI</strong></summary>
+
+```bash
+grok plugin install aaddrick/building-with-decision-models --trust
+```
+
+Kiểm tra xem nó đã được cài chưa:
+
+```bash
+grok inspect
+```
+
+`building-with-decision-models` hiện dưới Skills. Bắt đầu một phiên mới. Grok tải skill khi tác vụ phù hợp. Muốn tải thủ công, hãy gõ:
+
+```
+/building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Hermes Agent</strong></summary>
+
+```bash
+hermes skills install aaddrick/building-with-decision-models/skills/building-with-decision-models
+```
+
+Kiểm tra xem nó đã được cài chưa:
+
+```bash
+hermes skills list
+```
+
+Bắt đầu một phiên mới. Hermes tải skill khi tác vụ phù hợp. Muốn tải thủ công, hãy gõ:
+
+```
+/building-with-decision-models
+```
+
+Bạn có thể cài nó dưới dạng plugin, bằng `hermes plugins install aaddrick/building-with-decision-models --enable`. Tuy nhiên, skill của plugin không tự tải: mỗi lần bạn phải yêu cầu Hermes tải skill `building-with-decision-models`. Cách `skills install` ở trên không có giới hạn này.
+
+</details>
+
+<details>
+<summary><strong>Kimi Code</strong></summary>
+
+Bên trong Kimi Code, gõ:
+
+```
+/plugins install https://github.com/aaddrick/building-with-decision-models
+```
+
+Bắt đầu một phiên mới để skill được tải:
+
+```
+/new
+```
+
+Kiểm tra xem nó đã được cài chưa. Plugin hiện ở trạng thái đã bật và không có lỗi:
+
+```
+/plugins info building-with-decision-models
+```
+
+Kimi tải skill khi tác vụ phù hợp. Muốn tải thủ công, hãy gõ:
+
+```
+/skill:building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>OpenCode</strong></summary>
+
+OpenCode tự tải skill từ `~/.config/opencode/skills/`. Hãy clone repository này và liên kết thư mục skill vào đó:
+
+```bash
+git clone https://github.com/aaddrick/building-with-decision-models.git ~/.local/share/building-with-decision-models
+mkdir -p ~/.config/opencode/skills
+ln -s ~/.local/share/building-with-decision-models/skills/building-with-decision-models ~/.config/opencode/skills/building-with-decision-models
+```
+
+Trên Windows, hãy sao chép thư mục thay vì liên kết.
+
+Kiểm tra xem nó đã được cài chưa:
+
+```bash
+opencode debug skill | grep '"name": "building-with-decision-models"'
+```
+
+Khởi động lại OpenCode. Nó tải skill khi tác vụ phù hợp. Muốn tải thủ công, hãy yêu cầu nó dùng công cụ skill để tải `building-with-decision-models`.
+
+Để cập nhật, chạy `git -C ~/.local/share/building-with-decision-models pull`.
+
+</details>
+
+<details>
+<summary><strong>Pi</strong></summary>
+
+```bash
+pi install https://github.com/aaddrick/building-with-decision-models
+```
+
+Kiểm tra xem nó đã được cài chưa:
+
+```bash
+pi list
+```
+
+Bắt đầu một phiên mới. Pi tải skill khi tác vụ phù hợp. Muốn tải thủ công, hãy gõ:
+
+```
+/skill:building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Qwen Code</strong></summary>
+
+```bash
+qwen extensions install https://github.com/aaddrick/building-with-decision-models:building-with-decision-models
+```
+
+Hậu tố `:building-with-decision-models` chọn plugin. Bỏ nó đi thì Qwen sẽ yêu cầu bạn chọn một plugin.
+
+Kiểm tra xem nó đã được cài chưa:
+
+```bash
+qwen extensions list
+```
+
+`building-with-decision-models` hiện dưới `Skills:`. Khởi động lại Qwen Code. Nó tải skill khi tác vụ phù hợp. Muốn tải thủ công, hãy gõ:
+
+```
+/building-with-decision-models:building-with-decision-models
+```
+
+Để cập nhật sau này:
+
+```bash
+qwen extensions update building-with-decision-models
+```
 
 </details>
 
@@ -171,6 +460,14 @@ Bắt đầu một phiên mới. Muse Code tải skill khi tác vụ phù hợp.
 
 ```
 /building-with-decision-models
+```
+
+Để cài nó dưới dạng plugin, trước tiên hãy bật tính năng plugin thử nghiệm của Muse Code. Plugin bị tắt theo mặc định trong Muse Code 1.4.2.
+
+```bash
+export MUSE_EXPERIMENTAL_PLUGINS=1
+muse plugins marketplace add building-with-decision-models aaddrick/building-with-decision-models
+muse plugins install building-with-decision-models@building-with-decision-models
 ```
 
 </details>

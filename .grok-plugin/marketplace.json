@@ -1,0 +1,26 @@
+{
+  "name": "building-with-decision-models",
+  "description": "Unofficial skill for building with decision models: typed decisions with calibrated confidence, on any provider.",
+  "owner": {
+    "name": "aaddrick",
+    "url": "https://github.com/aaddrick"
+  },
+  "plugins": [
+    {
+      "name": "building-with-decision-models",
+      "description": "Unofficial skill for building with decision models (System One models) such as TypeSafe Jev, Cloudflare Clef, Perplexity pplx-decider, Databricks ai_decide, and local Ollama models: typed Choice/Score/Noul decisions, calibrated-confidence routing, provider differences, and community prior art sorted by implementation shape.",
+      "version": "0.1.0",
+      "category": "development",
+      "source": {
+        "source": "url",
+        "url": "https://github.com/aaddrick/building-with-decision-models.git"
+      },
+      "homepage": "https://github.com/aaddrick/building-with-decision-models",
+      "keywords": [
+        "decision-models",
+        "system-one",
+        "jev"
+      ]
+    }
+  ]
+}

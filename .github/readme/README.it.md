@@ -7,6 +7,7 @@
 <p align="center">
   <a href="../../LICENSE"><img src="https://img.shields.io/github/license/aaddrick/building-with-decision-models?style=flat" alt="License"></a>
   <a href="../workflows/checks.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaddrick/building-with-decision-models/checks.yml?label=checks&style=flat" alt="Checks"></a>
+  <a href="../workflows/plugin-load-check.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaddrick/building-with-decision-models/plugin-load-check.yml?label=plugin%20loads&style=flat" alt="Plugin loads"></a>
 </p>
 
 <p align="center">
@@ -26,7 +27,7 @@
 > [!NOTE]
 > Questa è una skill non ufficiale, della community. Non è creata, verificata o approvata da TypeSafe AI, Cloudflare, Perplexity, OpenAI, Databricks, AWS, Ollama o da nessun altro fornitore di cui parla. Vedi [Come si rapporta alla skill ufficiale di TypeSafe](#come-si-rapporta-alla-skill-ufficiale-di-typesafe).
 
-Gli agenti di coding trattano i modelli decisionali come l'ennesimo modello di chat. Questa skill insegna loro a progettare per questi modelli: domande tipizzate, confidenza calibrata, le differenze tra i fornitori e link a oltre 450 progetti della community, ordinati per come funzionano, con uno schema di codice per ogni pattern. Si installa in Claude Code, Codex, Antigravity CLI, Muse e Muse Code.
+Gli agenti di coding trattano i modelli decisionali come l'ennesimo modello di chat. Questa skill insegna loro a progettare per questi modelli: domande tipizzate, confidenza calibrata, le differenze tra i fornitori e link a oltre 450 progetti della community, ordinati per come funzionano, con uno schema di codice per ogni pattern. Si installa in Claude Code, Claude Desktop e claude.ai, Codex, Antigravity CLI, Cursor, Devin CLI, Factory Droid, Gemini CLI, GitHub Copilot CLI, Grok Build CLI, Hermes Agent, Kimi Code, OpenCode, Pi, Qwen Code, Muse e Muse Code.
 
 Un modello decisionale, detto anche modello [System One](https://docs.typesafe.ai/concepts/system-one), non scrive testo. Gli invii un contenuto e un insieme di domande tipizzate, e lui risponde a ogni domanda con un valore e una probabilità, di solito in poche centinaia di millisecondi o meno:
 
@@ -92,7 +93,9 @@ La skill si carica da sola quando lavori su codice per modelli decisionali. Per 
 </details>
 
 <details>
-<summary><strong>Codex</strong></summary>
+<summary><strong>Codex CLI e app Codex</strong></summary>
+
+Aggiungi il marketplace e installa il plugin:
 
 ```bash
 codex plugin marketplace add aaddrick/building-with-decision-models
@@ -101,6 +104,14 @@ codex plugin marketplace add aaddrick/building-with-decision-models
 ```bash
 codex plugin add building-with-decision-models@building-with-decision-models
 ```
+
+Verifica che sia stato installato:
+
+```bash
+codex plugin list
+```
+
+L'app Codex legge la stessa configurazione di Codex, quindi il plugin compare anche lì. Apri **Plugins** nella barra laterale per vederlo.
 
 Apri un nuovo thread. Codex carica la skill quando il task corrisponde. Per caricarla a mano, digita:
 
@@ -130,6 +141,284 @@ Avvia una nuova sessione. Antigravity CLI carica la skill quando il task corrisp
 ```
 
 Arrivi da Gemini CLI? Se `agy plugin import gemini` ha importato questa estensione, esegui comunque il comando di installazione qui sopra, così la copia attuale sostituisce quella importata.
+
+</details>
+
+<details>
+<summary><strong>Cursor</strong></summary>
+
+Nella chat di Cursor Agent, digita:
+
+```
+/add-plugin https://github.com/aaddrick/building-with-decision-models
+```
+
+Oppure apri **Customize**, importa un plugin con **From GitHub Repository** e inserisci `https://github.com/aaddrick/building-with-decision-models`. Poi seleziona **Install** accanto a **Building with Decision Models** e scegli l'ambito progetto o utente.
+
+Un plugin aggiunto da un URL GitHub può restare fermo a un vecchio commit. Per aggiornamenti affidabili, clona invece il repository nella cartella dei plugin locali di Cursor:
+
+```bash
+git clone https://github.com/aaddrick/building-with-decision-models.git ~/.cursor/plugins/local/building-with-decision-models
+```
+
+Poi esegui **Developer: Reload Window**. Clona dentro quella cartella, non usare un link simbolico: Cursor ignora i link simbolici che puntano fuori da essa. Per aggiornare, esegui `git pull` lì e ricarica di nuovo.
+
+Verifica che sia stato installato: apri **Customize**, poi **Skills**. `building-with-decision-models` compare sotto **Agent Decides**.
+
+Cursor carica la skill quando il task corrisponde. Per caricarla a mano, digita:
+
+```
+/building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Devin CLI</strong></summary>
+
+Devin richiede un account con accesso effettuato per gestire i plugin. Se non hai ancora effettuato l'accesso, esegui prima `devin auth login`.
+
+```bash
+devin plugins install aaddrick/building-with-decision-models
+```
+
+Verifica che sia stato installato:
+
+```bash
+devin plugins info building-with-decision-models
+```
+
+Avvia una nuova sessione. Devin carica la skill quando il task corrisponde. Per caricarla a mano, digita:
+
+```
+/building-with-decision-models:building-with-decision-models
+```
+
+Per aggiornarlo in seguito:
+
+```bash
+devin plugins update building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Factory Droid</strong></summary>
+
+```bash
+droid plugin marketplace add https://github.com/aaddrick/building-with-decision-models
+```
+
+```bash
+droid plugin install building-with-decision-models@building-with-decision-models
+```
+
+Verifica che sia stato installato:
+
+```bash
+droid plugin list
+```
+
+In una sessione di Droid, esegui `/skills` e apri la scheda Plugins per vedere la skill. Droid la carica quando il task corrisponde. Per caricarla a mano, digita `/building-with-decision-models` all'inizio di un prompt.
+
+Per aggiornarlo in seguito:
+
+```bash
+droid plugin marketplace update building-with-decision-models
+droid plugin update building-with-decision-models@building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Gemini CLI</strong></summary>
+
+```bash
+gemini extensions install https://github.com/aaddrick/building-with-decision-models
+```
+
+Verifica che sia stata installata:
+
+```bash
+gemini extensions list
+```
+
+L'output elenca `building-with-decision-models` sotto **Agent skills**. Avvia una nuova sessione. Gemini CLI carica la skill quando il task corrisponde e ti chiede prima di approvarla. Per caricarla a mano, chiedi a Gemini di usare la skill `building-with-decision-models`.
+
+Per aggiornarla in seguito:
+
+```bash
+gemini extensions update building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>GitHub Copilot CLI</strong></summary>
+
+```bash
+copilot plugin marketplace add aaddrick/building-with-decision-models
+```
+
+```bash
+copilot plugin install building-with-decision-models@building-with-decision-models
+```
+
+Verifica che sia stato installato:
+
+```bash
+copilot skill list
+```
+
+`building-with-decision-models` compare sotto "Plugin skills". Copilot la carica quando il task corrisponde. Per caricarla a mano, chiedi a Copilot di usare la skill `building-with-decision-models`.
+
+</details>
+
+<details>
+<summary><strong>Grok Build CLI</strong></summary>
+
+```bash
+grok plugin install aaddrick/building-with-decision-models --trust
+```
+
+Verifica che sia stato installato:
+
+```bash
+grok inspect
+```
+
+`building-with-decision-models` compare sotto Skills. Avvia una nuova sessione. Grok carica la skill quando il task corrisponde. Per caricarla a mano, digita:
+
+```
+/building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Hermes Agent</strong></summary>
+
+```bash
+hermes skills install aaddrick/building-with-decision-models/skills/building-with-decision-models
+```
+
+Verifica che sia stata installata:
+
+```bash
+hermes skills list
+```
+
+Avvia una nuova sessione. Hermes carica la skill quando il task corrisponde. Per caricarla a mano, digita:
+
+```
+/building-with-decision-models
+```
+
+Puoi invece installarla come plugin, con `hermes plugins install aaddrick/building-with-decision-models --enable`. Però la skill di un plugin non si carica da sola: devi chiedere a Hermes di caricare la skill `building-with-decision-models` ogni volta. La strada `skills install` qui sopra non ha questo limite.
+
+</details>
+
+<details>
+<summary><strong>Kimi Code</strong></summary>
+
+Dentro Kimi Code, digita:
+
+```
+/plugins install https://github.com/aaddrick/building-with-decision-models
+```
+
+Avvia una nuova sessione perché la skill venga caricata:
+
+```
+/new
+```
+
+Verifica che sia stato installato. Il plugin risulta abilitato e senza errori:
+
+```
+/plugins info building-with-decision-models
+```
+
+Kimi carica la skill quando il task corrisponde. Per caricarla a mano, digita:
+
+```
+/skill:building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>OpenCode</strong></summary>
+
+OpenCode carica da solo le skill da `~/.config/opencode/skills/`. Clona questo repository e collega lì la cartella della skill:
+
+```bash
+git clone https://github.com/aaddrick/building-with-decision-models.git ~/.local/share/building-with-decision-models
+mkdir -p ~/.config/opencode/skills
+ln -s ~/.local/share/building-with-decision-models/skills/building-with-decision-models ~/.config/opencode/skills/building-with-decision-models
+```
+
+Su Windows, copia la cartella invece di collegarla.
+
+Verifica che sia stata installata:
+
+```bash
+opencode debug skill | grep '"name": "building-with-decision-models"'
+```
+
+Riavvia OpenCode. Carica la skill quando il task corrisponde. Per caricarla a mano, chiedigli di usare lo strumento skill per caricare `building-with-decision-models`.
+
+Per aggiornarla, esegui `git -C ~/.local/share/building-with-decision-models pull`.
+
+</details>
+
+<details>
+<summary><strong>Pi</strong></summary>
+
+```bash
+pi install https://github.com/aaddrick/building-with-decision-models
+```
+
+Verifica che sia stato installato:
+
+```bash
+pi list
+```
+
+Avvia una nuova sessione. Pi carica la skill quando il task corrisponde. Per caricarla a mano, digita:
+
+```
+/skill:building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Qwen Code</strong></summary>
+
+```bash
+qwen extensions install https://github.com/aaddrick/building-with-decision-models:building-with-decision-models
+```
+
+Il suffisso `:building-with-decision-models` sceglie il plugin. Se lo ometti, Qwen ti chiede di sceglierne uno.
+
+Verifica che sia stato installato:
+
+```bash
+qwen extensions list
+```
+
+`building-with-decision-models` compare sotto `Skills:`. Riavvia Qwen Code. Carica la skill quando il task corrisponde. Per caricarla a mano, digita:
+
+```
+/building-with-decision-models:building-with-decision-models
+```
+
+Per aggiornarlo in seguito:
+
+```bash
+qwen extensions update building-with-decision-models
+```
 
 </details>
 
@@ -171,6 +460,14 @@ Avvia una nuova sessione. Muse Code carica la skill quando il task corrisponde. 
 
 ```
 /building-with-decision-models
+```
+
+Per installarla invece come plugin, attiva prima i plugin sperimentali di Muse Code. In Muse Code 1.4.2 i plugin sono disattivati per impostazione predefinita.
+
+```bash
+export MUSE_EXPERIMENTAL_PLUGINS=1
+muse plugins marketplace add building-with-decision-models aaddrick/building-with-decision-models
+muse plugins install building-with-decision-models@building-with-decision-models
 ```
 
 </details>

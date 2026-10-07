@@ -1,8 +1,9 @@
 name: checks
 
-# Cheap gates for what a reviewer cannot see: a malformed manifest, a skill
-# frontmatter or file reference that broke, a leaked API key, and a translated
-# README whose commands drifted from the English one.
+# Cheap gates for what a reviewer cannot see: a malformed manifest, manifests
+# whose versions drifted apart, a skill frontmatter or file reference that
+# broke, a leaked API key, and a translated README whose commands drifted from
+# the English one.
 on:
   pull_request:
   push:
@@ -26,7 +27,7 @@ jobs:
         with:
           python-version: "3.12"
 
-      - name: Manifests, skill frontmatter, file references, no leaked keys
+      - name: Manifests, versions, skill frontmatter, file references, no leaked keys
         run: python3 scripts/check_configs.py
 
       - name: Translated READMEs match the English commands and steps

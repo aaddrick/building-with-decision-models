@@ -7,6 +7,7 @@
 <p align="center">
   <a href="../../LICENSE"><img src="https://img.shields.io/github/license/aaddrick/building-with-decision-models?style=flat" alt="License"></a>
   <a href="../workflows/checks.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaddrick/building-with-decision-models/checks.yml?label=checks&style=flat" alt="Checks"></a>
+  <a href="../workflows/plugin-load-check.yml"><img src="https://img.shields.io/github/actions/workflow/status/aaddrick/building-with-decision-models/plugin-load-check.yml?label=plugin%20loads&style=flat" alt="Plugin loads"></a>
 </p>
 
 <p align="center">
@@ -26,7 +27,7 @@
 > [!NOTE]
 > 这是一个非官方的社区技能。它不是由 TypeSafe AI、Cloudflare、Perplexity、OpenAI、Databricks、AWS、Ollama 或它涉及的任何其他提供商制作、审核或认可的。参见[与官方 TypeSafe 技能的关系](#与官方-typesafe-技能的关系)。
 
-编程智能体把决策模型当作又一个聊天模型。这个技能教它们为决策模型做设计：类型化的问题、校准过的置信度、各家提供商之间的差别，以及指向 450 多个社区项目的链接，按工作方式分类，每种模式附一个代码草图。它可以安装在 Claude Code、Codex、Antigravity CLI、Muse 和 Muse Code 中。
+编程智能体把决策模型当作又一个聊天模型。这个技能教它们为决策模型做设计：类型化的问题、校准过的置信度、各家提供商之间的差别，以及指向 450 多个社区项目的链接，按工作方式分类，每种模式附一个代码草图。它可以安装在 Claude Code、Claude Desktop 和 claude.ai、Codex、Antigravity CLI、Cursor、Devin CLI、Factory Droid、Gemini CLI、GitHub Copilot CLI、Grok Build CLI、Hermes Agent、Kimi Code、OpenCode、Pi、Qwen Code、Muse 和 Muse Code 中。
 
 决策模型也叫 [System One](https://docs.typesafe.ai/concepts/system-one) 模型，它不生成文本。你给它发送内容和一组类型化的问题，它对每个问题返回一个值和一个概率，通常只需几百毫秒甚至更短：
 
@@ -92,7 +93,9 @@ claude plugin install building-with-decision-models@building-with-decision-model
 </details>
 
 <details>
-<summary><strong>Codex</strong></summary>
+<summary><strong>Codex CLI 和 Codex 应用</strong></summary>
+
+添加插件市场并安装插件：
 
 ```bash
 codex plugin marketplace add aaddrick/building-with-decision-models
@@ -101,6 +104,14 @@ codex plugin marketplace add aaddrick/building-with-decision-models
 ```bash
 codex plugin add building-with-decision-models@building-with-decision-models
 ```
+
+检查是否已安装：
+
+```bash
+codex plugin list
+```
+
+Codex 应用读取同一份 Codex 配置，所以插件也会出现在应用里。打开侧边栏中的 **Plugins** 即可看到。
 
 开启一个新线程。任务匹配时，Codex 会加载这个技能。想手动加载，输入：
 
@@ -130,6 +141,284 @@ agy plugin list
 ```
 
 从 Gemini CLI 迁移过来？如果 `agy plugin import gemini` 已经导入了这个扩展，也请运行上面的安装命令，用当前版本替换导入的副本。
+
+</details>
+
+<details>
+<summary><strong>Cursor</strong></summary>
+
+在 Cursor Agent 对话中输入：
+
+```
+/add-plugin https://github.com/aaddrick/building-with-decision-models
+```
+
+或者打开 **Customize**，通过 **From GitHub Repository** 导入插件，然后输入 `https://github.com/aaddrick/building-with-decision-models`。接着选择 **Building with Decision Models** 旁边的 **Install**，并选择项目范围或用户范围。
+
+通过 GitHub URL 添加的插件可能会停留在旧的提交上。想要可靠的更新，请改为把仓库克隆到 Cursor 的本地插件文件夹：
+
+```bash
+git clone https://github.com/aaddrick/building-with-decision-models.git ~/.cursor/plugins/local/building-with-decision-models
+```
+
+然后运行 **Developer: Reload Window**。请克隆到该文件夹中，不要用符号链接指向它：Cursor 会跳过指向该文件夹之外的符号链接。要更新，在那里运行 `git pull`，然后再次重新加载。
+
+检查是否已安装：打开 **Customize**，再打开 **Skills**。`building-with-decision-models` 会出现在 **Agent Decides** 下。
+
+任务匹配时，Cursor 会加载这个技能。想手动加载，输入：
+
+```
+/building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Devin CLI</strong></summary>
+
+Devin 需要登录账号才能管理插件。如果你还没有登录，请先运行 `devin auth login`。
+
+```bash
+devin plugins install aaddrick/building-with-decision-models
+```
+
+检查是否已安装：
+
+```bash
+devin plugins info building-with-decision-models
+```
+
+开启一个新会话。任务匹配时，Devin 会加载这个技能。想手动加载，输入：
+
+```
+/building-with-decision-models:building-with-decision-models
+```
+
+之后要更新：
+
+```bash
+devin plugins update building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Factory Droid</strong></summary>
+
+```bash
+droid plugin marketplace add https://github.com/aaddrick/building-with-decision-models
+```
+
+```bash
+droid plugin install building-with-decision-models@building-with-decision-models
+```
+
+检查是否已安装：
+
+```bash
+droid plugin list
+```
+
+在 Droid 会话中运行 `/skills`，打开 Plugins 标签页即可看到这个技能。任务匹配时，Droid 会加载它。想手动加载，在提示的开头输入 `/building-with-decision-models`。
+
+之后要更新：
+
+```bash
+droid plugin marketplace update building-with-decision-models
+droid plugin update building-with-decision-models@building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Gemini CLI</strong></summary>
+
+```bash
+gemini extensions install https://github.com/aaddrick/building-with-decision-models
+```
+
+检查是否已安装：
+
+```bash
+gemini extensions list
+```
+
+输出会在 **Agent skills** 下列出 `building-with-decision-models`。开启一个新会话。任务匹配时，Gemini CLI 会加载这个技能，并先请你批准。想手动加载，让 Gemini 使用 `building-with-decision-models` 技能。
+
+之后要更新：
+
+```bash
+gemini extensions update building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>GitHub Copilot CLI</strong></summary>
+
+```bash
+copilot plugin marketplace add aaddrick/building-with-decision-models
+```
+
+```bash
+copilot plugin install building-with-decision-models@building-with-decision-models
+```
+
+检查是否已安装：
+
+```bash
+copilot skill list
+```
+
+`building-with-decision-models` 会显示在"Plugin skills"下。任务匹配时，Copilot 会加载它。想手动加载，让 Copilot 使用 `building-with-decision-models` 技能。
+
+</details>
+
+<details>
+<summary><strong>Grok Build CLI</strong></summary>
+
+```bash
+grok plugin install aaddrick/building-with-decision-models --trust
+```
+
+检查是否已安装：
+
+```bash
+grok inspect
+```
+
+`building-with-decision-models` 会出现在 Skills 下。开启一个新会话。任务匹配时，Grok 会加载这个技能。想手动加载，输入：
+
+```
+/building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Hermes Agent</strong></summary>
+
+```bash
+hermes skills install aaddrick/building-with-decision-models/skills/building-with-decision-models
+```
+
+检查是否已安装：
+
+```bash
+hermes skills list
+```
+
+开启一个新会话。任务匹配时，Hermes 会加载这个技能。想手动加载，输入：
+
+```
+/building-with-decision-models
+```
+
+你也可以改为以插件方式安装，使用 `hermes plugins install aaddrick/building-with-decision-models --enable`。不过插件中的技能不会自动加载：每次都要让 Hermes 加载 `building-with-decision-models` 技能。上面的 `skills install` 方式没有这个限制。
+
+</details>
+
+<details>
+<summary><strong>Kimi Code</strong></summary>
+
+在 Kimi Code 中输入：
+
+```
+/plugins install https://github.com/aaddrick/building-with-decision-models
+```
+
+开启一个新会话，让技能加载：
+
+```
+/new
+```
+
+检查是否已安装。插件显示为已启用且没有错误：
+
+```
+/plugins info building-with-decision-models
+```
+
+任务匹配时，Kimi 会加载这个技能。想手动加载，输入：
+
+```
+/skill:building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>OpenCode</strong></summary>
+
+OpenCode 会自动从 `~/.config/opencode/skills/` 加载技能。克隆这个仓库，并把技能文件夹链接到那里：
+
+```bash
+git clone https://github.com/aaddrick/building-with-decision-models.git ~/.local/share/building-with-decision-models
+mkdir -p ~/.config/opencode/skills
+ln -s ~/.local/share/building-with-decision-models/skills/building-with-decision-models ~/.config/opencode/skills/building-with-decision-models
+```
+
+在 Windows 上，请复制文件夹，而不是链接它。
+
+检查是否已安装：
+
+```bash
+opencode debug skill | grep '"name": "building-with-decision-models"'
+```
+
+重启 OpenCode。任务匹配时，它会加载这个技能。想手动加载，让它使用 skill 工具加载 `building-with-decision-models`。
+
+要更新，运行 `git -C ~/.local/share/building-with-decision-models pull`。
+
+</details>
+
+<details>
+<summary><strong>Pi</strong></summary>
+
+```bash
+pi install https://github.com/aaddrick/building-with-decision-models
+```
+
+检查是否已安装：
+
+```bash
+pi list
+```
+
+开启一个新会话。任务匹配时，Pi 会加载这个技能。想手动加载，输入：
+
+```
+/skill:building-with-decision-models
+```
+
+</details>
+
+<details>
+<summary><strong>Qwen Code</strong></summary>
+
+```bash
+qwen extensions install https://github.com/aaddrick/building-with-decision-models:building-with-decision-models
+```
+
+`:building-with-decision-models` 后缀用来指定插件。省略它的话，Qwen 会请你选择一个。
+
+检查是否已安装：
+
+```bash
+qwen extensions list
+```
+
+`building-with-decision-models` 会出现在 `Skills:` 下。重启 Qwen Code。任务匹配时，它会加载这个技能。想手动加载，输入：
+
+```
+/building-with-decision-models:building-with-decision-models
+```
+
+之后要更新：
+
+```bash
+qwen extensions update building-with-decision-models
+```
 
 </details>
 
@@ -171,6 +460,14 @@ muse skills list
 
 ```
 /building-with-decision-models
+```
+
+想改为以插件方式安装，请先开启 Muse Code 的实验性插件功能。在 Muse Code 1.4.2 中，插件默认是关闭的。
+
+```bash
+export MUSE_EXPERIMENTAL_PLUGINS=1
+muse plugins marketplace add building-with-decision-models aaddrick/building-with-decision-models
+muse plugins install building-with-decision-models@building-with-decision-models
 ```
 
 </details>
