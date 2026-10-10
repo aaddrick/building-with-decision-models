@@ -73,4 +73,4 @@ def decide(obs: dict, legal: list[str]) -> str | None:
 - Fixed-wing landing in JSBSim. Jev scored 56/100 vs. 69.9 for a baseline; GPT-6 controllers scored 0–49: [AlperKartkaya/FlightBench](https://github.com/AlperKartkaya/FlightBench)
 - Stealth game guards, 4 batched questions per guard. Stale revisions are rejected. 259.9 ms median, 0 fallbacks over 288 judgments: [AbdelStark/heist-one](https://github.com/AbdelStark/heist-one)
 
-More projects (52 entries), grouped by sub-type (Games, Robots, vehicles, simulations, Markets, Devices): `prior-art/projects/control-loops.md`.
+More projects (53 entries), grouped by sub-type (Games, Robots, vehicles, simulations, Markets, Devices): `prior-art/projects/control-loops.md`.

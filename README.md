@@ -25,7 +25,7 @@
 </p>
 
 > [!NOTE]
-> This is an unofficial, community skill. It is not made, reviewed, or endorsed by TypeSafe AI, Cloudflare, Perplexity, OpenAI, Databricks, AWS, Ollama, or any other provider it covers. See [How this relates to the official TypeSafe skill](#how-this-relates-to-the-official-typesafe-skill).
+> This is an unofficial, community skill. It is not made, reviewed, or endorsed by TypeSafe AI, Cloudflare, Perplexity, OpenAI, Microsoft, Databricks, AWS, Ollama, or any other provider it covers. See [How this relates to the official TypeSafe skill](#how-this-relates-to-the-official-typesafe-skill).
 
 Coding agents treat decision models like one more chat model. This skill teaches them to design for them: typed questions, calibrated confidence, the differences between providers, and links to 450+ community projects, sorted by how they work, with a code sketch for each pattern. It installs in Claude Code, Claude Desktop and claude.ai, Codex, Antigravity CLI, Cursor, Devin CLI, Factory Droid, Gemini CLI, GitHub Copilot CLI, Grok Build CLI, Hermes Agent, Kimi Code, OpenCode, Pi, Qwen Code, Muse, and Muse Code.
 
@@ -39,7 +39,7 @@ TypeSafe's [Jev](https://docs.typesafe.ai/introduction) started the category on 
 
 | Kind | Models | How you call it |
 |---|---|---|
-| Hosted | TypeSafe Jev, Cloudflare Clef and Clef-flash, Perplexity pplx-decider, OpenAI Decisions API (`gpt-6-luna`), System1 Models, Strom | HTTP API, each with its own key |
+| Hosted | TypeSafe Jev, Cloudflare Clef and Clef-flash, Perplexity pplx-decider, OpenAI Decisions API (`gpt-6-luna`), Microsoft-Decision-1 on Microsoft Foundry, System1 Models, Strom | HTTP API, each with its own key |
 | In your data warehouse | Databricks `ai_decide()` | SQL function or REST |
 | On your machine | Nimble and Tev1 through Ollama, Kev, Laya, Strands Decider, CLM-8B | Local server, no key |
 | Through one gateway | OpenRouter, Vercel AI Gateway, LLM Gateway, Pydantic AI | One key or one client for several models |
@@ -516,6 +516,7 @@ A local model checks the request shape for free. Its accuracy and calibration ar
 | Cloudflare Clef | `CLOUDFLARE_AUTH_TOKEN` and `CLOUDFLARE_ACCOUNT_ID` | Cloudflare dashboard, Workers AI |
 | Perplexity pplx-decider | `PERPLEXITY_API_KEY` | Perplexity API settings |
 | OpenAI Decisions API | `OPENAI_API_KEY` | OpenAI platform |
+| Microsoft-Decision-1 (Microsoft Foundry) | `AZURE_API_KEY` or an Entra token, plus `AZURE_ENDPOINT` and `DEPLOYMENT_NAME` | ai.azure.com, deployment details page |
 | System1 Models | `SYSTEM1_API_KEY` | system1models.ai |
 | Strom (Uprelic) | `UPRELIC_API_KEY` | platform.uprelic.com |
 | OpenRouter | `OPENROUTER_API_KEY` | openrouter.ai |
@@ -680,7 +681,7 @@ The skill loads in layers, so the agent reads only what the task needs.
 |---|---|---|
 | `SKILL.md` | Which provider and primitive to pick, 11 design rules, how to use probabilities and confidence, how to change models safely, common mistakes | Every decision-model task |
 | `providers/jev.md` | The reference `/v1/systemone` contract: HTTP API, Python and JavaScript SDKs, limits, errors, environment variables | When it writes the code |
-| `providers/*.md` | 10 provider files (Clef, Perplexity, OpenAI, Databricks, Ollama and Kev, EU hosts, gateways, Pydantic AI, open-weight models): how each differs from Jev, with sources | When it targets that provider |
+| `providers/*.md` | 11 provider files (Clef, Perplexity, OpenAI, Microsoft Foundry, Databricks, Ollama and Kev, EU hosts, gateways, Pydantic AI, open-weight models): how each differs from Jev, with sources | When it targets that provider |
 | `models/*.md` | 9 model files (Clef, Nimble, Laya, Kev, CLM-8B, pplx-decider, GPT-6 Luna, Strands Decider, and the rest) plus an index: the limits people hit, calibration, where each model does well and fails, and notes per shape | When it runs on a model other than Jev |
 | `patterns.md` | The 4 official patterns and techniques from 18 cookbooks, with their thresholds | When it designs a workflow |
 | `choosing-and-switching-models.md` | How to compare models, re-fit thresholds, shadow, and switch, with the lessons from people who switched and the benchmarks that exist | When it picks, compares, or changes a model |

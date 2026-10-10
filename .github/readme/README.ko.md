@@ -25,7 +25,7 @@
 </p>
 
 > [!NOTE]
-> 이 스킬은 비공식 커뮤니티 스킬입니다. TypeSafe AI, Cloudflare, Perplexity, OpenAI, Databricks, AWS, Ollama를 비롯해 이 스킬이 다루는 어떤 제공사도 만들거나 검토하거나 보증하지 않았습니다. [공식 TypeSafe 스킬과의 관계](#공식-typesafe-스킬과의-관계)를 참고하세요.
+> 이 스킬은 비공식 커뮤니티 스킬입니다. TypeSafe AI, Cloudflare, Perplexity, OpenAI, Microsoft, Databricks, AWS, Ollama를 비롯해 이 스킬이 다루는 어떤 제공사도 만들거나 검토하거나 보증하지 않았습니다. [공식 TypeSafe 스킬과의 관계](#공식-typesafe-스킬과의-관계)를 참고하세요.
 
 코딩 에이전트는 결정 모델을 채팅 모델 하나쯤으로 다룹니다. 이 스킬은 에이전트가 결정 모델에 맞게 설계하도록 가르칩니다. 타입 있는 질문, 보정된 신뢰도, 제공사 사이의 차이, 그리고 동작 방식별로 정리한 450개가 넘는 커뮤니티 프로젝트 링크와 패턴별 코드 스케치를 담았습니다. Claude Code, Claude Desktop과 claude.ai, Codex, Antigravity CLI, Cursor, Devin CLI, Factory Droid, Gemini CLI, GitHub Copilot CLI, Grok Build CLI, Hermes Agent, Kimi Code, OpenCode, Pi, Qwen Code, Muse, Muse Code에 설치할 수 있습니다.
 
@@ -39,7 +39,7 @@
 
 | 종류 | 모델 | 호출 방법 |
 |---|---|---|
-| 호스팅 | TypeSafe Jev, Cloudflare Clef와 Clef-flash, Perplexity pplx-decider, OpenAI Decisions API (`gpt-6-luna`), System1 Models, Strom | HTTP API, 제공사마다 별도 키 |
+| 호스팅 | TypeSafe Jev, Cloudflare Clef와 Clef-flash, Perplexity pplx-decider, OpenAI Decisions API (`gpt-6-luna`), Microsoft-Decision-1 on Microsoft Foundry, System1 Models, Strom | HTTP API, 제공사마다 별도 키 |
 | 데이터 웨어하우스 안 | Databricks `ai_decide()` | SQL 함수 또는 REST |
 | 내 컴퓨터 | Ollama로 돌리는 Nimble과 Tev1, Kev, Laya, Strands Decider, CLM-8B | 로컬 서버, 키 없음 |
 | 게이트웨이 하나로 | OpenRouter, Vercel AI Gateway, LLM Gateway, Pydantic AI | 키 하나 또는 클라이언트 하나로 여러 모델 |
@@ -516,6 +516,7 @@ curl -s http://localhost:11434/api/version
 | Cloudflare Clef | `CLOUDFLARE_AUTH_TOKEN`과 `CLOUDFLARE_ACCOUNT_ID` | Cloudflare 대시보드, Workers AI |
 | Perplexity pplx-decider | `PERPLEXITY_API_KEY` | Perplexity API 설정 |
 | OpenAI Decisions API | `OPENAI_API_KEY` | OpenAI 플랫폼 |
+| Microsoft-Decision-1 (Microsoft Foundry) | `AZURE_API_KEY` or an Entra token, plus `AZURE_ENDPOINT` and `DEPLOYMENT_NAME` | ai.azure.com, deployment details page |
 | System1 Models | `SYSTEM1_API_KEY` | system1models.ai |
 | Strom (Uprelic) | `UPRELIC_API_KEY` | platform.uprelic.com |
 | OpenRouter | `OPENROUTER_API_KEY` | openrouter.ai |
@@ -680,7 +681,7 @@ Dock, 시작 메뉴, 데스크톱 런처에서 시작한 앱은 셸 파일을 �
 |---|---|---|
 | `SKILL.md` | 어떤 제공사와 기본 요소를 고를지, 설계 규칙 11개, 확률과 신뢰도 쓰는 법, 모델을 안전하게 바꾸는 법, 흔한 실수 | 모든 결정 모델 작업 |
 | `providers/jev.md` | 기준이 되는 `/v1/systemone` 계약: HTTP API, Python과 JavaScript SDK, 제한, 오류, 환경 변수 | 코드를 작성할 때 |
-| `providers/*.md` | 제공사 파일 10개(Clef, Perplexity, OpenAI, Databricks, Ollama와 Kev, EU 호스트, 게이트웨이, Pydantic AI, 오픈 웨이트 모델): 각각 Jev와 어떻게 다른지, 출처와 함께 | 그 제공사를 대상으로 할 때 |
+| `providers/*.md` | 제공사 파일 11개(Clef, Perplexity, OpenAI, Microsoft Foundry, Databricks, Ollama와 Kev, EU 호스트, 게이트웨이, Pydantic AI, 오픈 웨이트 모델): 각각 Jev와 어떻게 다른지, 출처와 함께 | 그 제공사를 대상으로 할 때 |
 | `models/*.md` | 모델 파일 9개(Clef, Nimble, Laya, Kev, CLM-8B, pplx-decider, GPT-6 Luna, Strands Decider, 그 밖의 모델)와 색인: 현장에서 부딪힌 제한, 보정, 모델마다 잘하는 곳과 실패한 곳, 형태별 메모 | Jev가 아닌 모델로 실행할 때 |
 | `patterns.md` | 공식 패턴 4개와 쿡북 18개의 기법, 그리고 각 임곗값 | 워크플로를 설계할 때 |
 | `choosing-and-switching-models.md` | 모델 비교, 임곗값 재조정, 섀도 운영, 전환 절차. 모델을 바꾼 사람들의 교훈과 기존 벤치마크 포함 | 모델을 고르거나 비교하거나 바꿀 때 |

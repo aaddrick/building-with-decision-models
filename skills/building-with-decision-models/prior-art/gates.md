@@ -92,4 +92,4 @@ def gate(client: TypeSafeClient, command: str, cwd: str) -> str:
 - Edward, deterministic window rules plus an advisory scorer give pause/cancel/block; reported on StepShield: rules 7.4% recall, + local 4B 58.3% recall / 17.6% FPR, + Jev 59.3% / 10.2% (Jev or local 4B): [VeridicalTech/Edward](https://github.com/VeridicalTech/Edward)
 - jev-shield, MCP firewall over calls, results, and tool descriptions, with session taint; reported 94% block recall, 0 false positives, 558 ms median: [caiovicentino/jev-shield](https://github.com/caiovicentino/jev-shield)
 
-More projects (49 entries), grouped by sub-type (Agent tool and command gates, Trajectory gates, Completion and "done" gates, Code and CI gates, Money and risk gates, Content gates, Research and vendor guidance): `prior-art/projects/gates.md`.
+More projects (50 entries), grouped by sub-type (Agent tool and command gates, Trajectory gates, Completion and "done" gates, Code and CI gates, Money and risk gates, Content gates, Research and vendor guidance): `prior-art/projects/gates.md`.

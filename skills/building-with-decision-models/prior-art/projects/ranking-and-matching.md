@@ -4,6 +4,7 @@ Community projects that use this shape, grouped by sub-type. Numbers are author-
 
 **Rerank and retrieval**
 - Rerank cookbook, BM25 top-30 + Noul, top-10 38% → 62%: [docs.typesafe.ai](https://docs.typesafe.ai/cookbooks/rerank_typesafe.md)
+- jev-navigator search relevance judge. Decision-1's AUC was 0.53 at 16 items per request and 0.58 at 4 (Jev 0.57 at 4), so its route caps requests at 4 items (Jev, Microsoft-Decision-1): [ajbmachon/jev-navigator#170](https://github.com/ajbmachon/jev-navigator/pull/170)
 - RAG passage classifier, 4 Nouls per passage with first-match routing: [docs.typesafe.ai](https://docs.typesafe.ai/cookbooks/classifying_rag_passages.md)
 - LanceDB `TypeSafeReranker` ([`lancedb/rerankers/typesafe.py`](https://github.com/lancedb/lancedb/blob/main/python/python/lancedb/rerankers/typesafe.py) in [lancedb/lancedb](https://github.com/lancedb/lancedb)), OpenViking [`jev_rerank.py`](https://github.com/volcengine/OpenViking/blob/main/openviking/models/rerank/jev_rerank.py) in [volcengine/OpenViking](https://github.com/volcengine/OpenViking), [hev/reranker](https://github.com/hev/reranker)
 - Jev in production vs. a cross-encoder: [HN](https://news.ycombinator.com/item?id=49804788)

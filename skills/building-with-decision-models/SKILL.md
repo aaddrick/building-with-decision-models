@@ -1,6 +1,6 @@
 ---
 name: building-with-decision-models
-description: Use when code needs a judgment about natural language that rules or regex cannot make (classify, route, triage, moderate, score, rank, match, dedupe, filter, extract, verify, or gate an action), when brainstorming where AI could fit in an app, when an LLM call exists only to pick a label, score, or yes/no, or when code uses a decision model or System One model such as TypeSafe Jev, Cloudflare Clef, Perplexity pplx-decider, Databricks ai_decide, Ollama's /v1/systemone (Nimble, Tev1, Kev), Laya, Strands Decider, CLM, typesafe-sdk, or @typesafe-ai/sdk.
+description: Use when code needs a judgment about natural language that rules or regex cannot make (classify, route, triage, moderate, score, rank, match, dedupe, filter, extract, verify, or gate an action), when brainstorming where AI could fit in an app, when an LLM call exists only to pick a label, score, or yes/no, or when code uses a decision model or System One model such as TypeSafe Jev, Cloudflare Clef, Perplexity pplx-decider, Microsoft-Decision-1 on Microsoft Foundry, Databricks ai_decide, Ollama's /v1/systemone (Nimble, Tev1, Kev), Laya, Strands Decider, CLM, typesafe-sdk, or @typesafe-ai/sdk.
 ---
 
 # Building with Decision Models
@@ -9,7 +9,7 @@ description: Use when code needs a judgment about natural language that rules or
 
 A **decision model** (also called a System One model) takes a `state` plus named, typed questions and returns typed answers with probabilities. It never generates text. **Code owns the workflow. The model supplies narrow snap judgments.** It is not a chat or coding LLM and cannot power a coding agent.
 
-TypeSafe's Jev started the category on 2026-09-15 with the `POST /v1/systemone` contract and three question types: `noul`, `choice`, and `score`. Every provider since uses the same three question types, so the rules below hold for all of them. Many accept Jev's body unchanged (Ollama, Kev, Laya, Strands Decider, gateways). Others keep the ideas but change the wire format: Clef REST wraps the answers in `result`, Databricks renames the Noul answer `probability`, and OpenAI and Perplexity serve their own paths with their own field names. What also differs is the model names, the limits, the price, and **how well the probabilities match reality**.
+TypeSafe's Jev started the category on 2026-09-15 with the `POST /v1/systemone` contract and three question types: `noul`, `choice`, and `score`. Every provider since uses the same three question types, so the rules below hold for all of them. Many accept Jev's body unchanged (Ollama, Kev, Laya, Strands Decider, gateways, and Microsoft-Decision-1 under an Azure path and auth). Others keep the ideas but change the wire format: Clef REST wraps the answers in `result`, Databricks renames the Noul answer `probability`, and OpenAI and Perplexity serve their own paths with their own field names. What also differs is the model names, the limits, the price, and **how well the probabilities match reality**.
 
 **Before you design anything new, check prior art:** open `prior-art/INDEX.md`. It maps intents (control loop, gate, rerank, stream filter, incremental, agent memory, LLM pairing, and more) to shape files. Each shape file has a code sketch, field lessons, and a few flagship community projects, with the model each one used. The full project lists are in `prior-art/projects/`. Or grep `prior-art/` (recursively) for a domain word. It also lists the known bad fits as one-line headlines. The evidence and links are in `prior-art/bad-fits.md`. Notes for one model other than Jev (limits, calibration, failures, per-shape lessons) are in `models/<name>.md`; `models/INDEX.md` lists them.
 
@@ -26,6 +26,7 @@ Use the one the project already uses. If there is none, pick by the constraint t
 | Best measured accuracy and calibration, lowest hosted price | TypeSafe Jev | `providers/jev.md` |
 | Already on Cloudflare Workers, or the state includes images | Cloudflare Clef / Clef-flash | `providers/clef.md` |
 | Very long state (whole documents, long transcripts) | Perplexity pplx-decider | `providers/perplexity.md` |
+| Azure shop, Entra auth, or US/EU data-zone processing | Microsoft-Decision-1 on Microsoft Foundry (Jev body, Azure path, deployment name as `model`) | `providers/microsoft-foundry.md` |
 | Decisions over rows already in a warehouse | Databricks `ai_decide()` | `providers/databricks.md` |
 | Data must not leave the machine, offline, or free tests | Ollama: Nimble, Tev1, Kev | `providers/ollama.md` |
 | Data must stay in the EU | System1 Models (1 question per request), Strom | `providers/eu-hosts.md` |

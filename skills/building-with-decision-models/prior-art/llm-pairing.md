@@ -70,4 +70,4 @@ def verify(client: TypeSafeClient, source: str, schema: dict, record: dict) -> b
 - tiershift: Jev scores 11 dimensions, and a YAML policy picks the fast, mid, or flagship tier in a median 180 ms. Reported flagship quality at 40% lower cost on 120 prompts: [iamvatsalpatel/tiershift](https://github.com/iamvatsalpatel/tiershift)
 - JevHarness: an LLM writes the harness and its Jev questions, then GEPA refines them on rewards. Reported Pokémon win rate rose from 25% to 75% after 5 rounds: [TianyuCodings/JevHarness](https://github.com/TianyuCodings/JevHarness)
 
-More projects (44 entries), grouped by sub-type (Verify-then-escalate cascades and judges, Routing (code, specialist LLM, model tier, or human), Planner / actor and proposer / selector, Rule writer / runner, Tutor → student and training recipes): `prior-art/projects/llm-pairing.md`.
+More projects (45 entries), grouped by sub-type (Verify-then-escalate cascades and judges, Routing (code, specialist LLM, model tier, or human), Planner / actor and proposer / selector, Rule writer / runner, Tutor → student and training recipes): `prior-art/projects/llm-pairing.md`.

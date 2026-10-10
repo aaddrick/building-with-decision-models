@@ -25,7 +25,7 @@
 </p>
 
 > [!NOTE]
-> Questa è una skill non ufficiale, della community. Non è creata, verificata o approvata da TypeSafe AI, Cloudflare, Perplexity, OpenAI, Databricks, AWS, Ollama o da nessun altro fornitore di cui parla. Vedi [Come si rapporta alla skill ufficiale di TypeSafe](#come-si-rapporta-alla-skill-ufficiale-di-typesafe).
+> Questa è una skill non ufficiale, della community. Non è creata, verificata o approvata da TypeSafe AI, Cloudflare, Perplexity, OpenAI, Microsoft, Databricks, AWS, Ollama o da nessun altro fornitore di cui parla. Vedi [Come si rapporta alla skill ufficiale di TypeSafe](#come-si-rapporta-alla-skill-ufficiale-di-typesafe).
 
 Gli agenti di coding trattano i modelli decisionali come l'ennesimo modello di chat. Questa skill insegna loro a progettare per questi modelli: domande tipizzate, confidenza calibrata, le differenze tra i fornitori e link a oltre 450 progetti della community, ordinati per come funzionano, con uno schema di codice per ogni pattern. Si installa in Claude Code, Claude Desktop e claude.ai, Codex, Antigravity CLI, Cursor, Devin CLI, Factory Droid, Gemini CLI, GitHub Copilot CLI, Grok Build CLI, Hermes Agent, Kimi Code, OpenCode, Pi, Qwen Code, Muse e Muse Code.
 
@@ -39,7 +39,7 @@ Un modello decisionale, detto anche modello [System One](https://docs.typesafe.a
 
 | Tipo | Modelli | Come lo chiami |
 |---|---|---|
-| In hosting | TypeSafe Jev, Cloudflare Clef e Clef-flash, Perplexity pplx-decider, OpenAI Decisions API (`gpt-6-luna`), System1 Models, Strom | API HTTP, ognuna con la propria chiave |
+| In hosting | TypeSafe Jev, Cloudflare Clef e Clef-flash, Perplexity pplx-decider, OpenAI Decisions API (`gpt-6-luna`), Microsoft-Decision-1 on Microsoft Foundry, System1 Models, Strom | API HTTP, ognuna con la propria chiave |
 | Nel tuo data warehouse | Databricks `ai_decide()` | Funzione SQL o REST |
 | Sul tuo computer | Nimble e Tev1 tramite Ollama, Kev, Laya, Strands Decider, CLM-8B | Server locale, nessuna chiave |
 | Tramite un unico gateway | OpenRouter, Vercel AI Gateway, LLM Gateway, Pydantic AI | Una chiave o un client per più modelli |
@@ -516,6 +516,7 @@ Un modello locale verifica gratis la forma della richiesta. La sua precisione e 
 | Cloudflare Clef | `CLOUDFLARE_AUTH_TOKEN` e `CLOUDFLARE_ACCOUNT_ID` | Dashboard di Cloudflare, Workers AI |
 | Perplexity pplx-decider | `PERPLEXITY_API_KEY` | Impostazioni API di Perplexity |
 | OpenAI Decisions API | `OPENAI_API_KEY` | Piattaforma OpenAI |
+| Microsoft-Decision-1 (Microsoft Foundry) | `AZURE_API_KEY` or an Entra token, plus `AZURE_ENDPOINT` and `DEPLOYMENT_NAME` | ai.azure.com, deployment details page |
 | System1 Models | `SYSTEM1_API_KEY` | system1models.ai |
 | Strom (Uprelic) | `UPRELIC_API_KEY` | platform.uprelic.com |
 | OpenRouter | `OPENROUTER_API_KEY` | openrouter.ai |
@@ -680,7 +681,7 @@ La skill si carica a livelli, così l'agente legge solo quello che serve al task
 |---|---|---|
 | `SKILL.md` | Quale fornitore e quale primitiva scegliere, 11 regole di design, come usare probabilità e confidenza, come cambiare modello in sicurezza, errori comuni | In ogni task con un modello decisionale |
 | `providers/jev.md` | Il contratto di riferimento `/v1/systemone`: API HTTP, SDK Python e JavaScript, limiti, errori, variabili d'ambiente | Quando scrive il codice |
-| `providers/*.md` | 10 file di fornitore (Clef, Perplexity, OpenAI, Databricks, Ollama e Kev, host UE, gateway, Pydantic AI, modelli open-weight): in cosa ciascuno differisce da Jev, con le fonti | Quando lavora con quel fornitore |
+| `providers/*.md` | 11 file di fornitore (Clef, Perplexity, OpenAI, Microsoft Foundry, Databricks, Ollama e Kev, host UE, gateway, Pydantic AI, modelli open-weight): in cosa ciascuno differisce da Jev, con le fonti | Quando lavora con quel fornitore |
 | `models/*.md` | 9 file di modello (Clef, Nimble, Laya, Kev, CLM-8B, pplx-decider, GPT-6 Luna, Strands Decider e gli altri) più un indice: i limiti incontrati sul campo, la calibrazione, dove ciascun modello funziona bene e dove fallisce, e note per forma | Quando usa un modello diverso da Jev |
 | `patterns.md` | I 4 pattern ufficiali e le tecniche da 18 cookbook, con le relative soglie | Quando progetta un workflow |
 | `choosing-and-switching-models.md` | Come confrontare i modelli, ricalibrare le soglie, provare il nuovo modello in ombra e cambiare, con le lezioni di chi ha cambiato modello e i benchmark esistenti | Quando sceglie, confronta o cambia un modello |

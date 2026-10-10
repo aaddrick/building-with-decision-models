@@ -13,6 +13,7 @@ Field notes for each decision model other than Jev: limits people hit, calibrati
 | CLM-8B | `models/clm.md` |
 | Perplexity pplx-decider | `models/pplx-decider.md` |
 | OpenAI Decisions API (GPT-6 Luna) | `models/luna.md` |
+| Microsoft-Decision-1 (Microsoft Foundry) | `models/microsoft-decision-1.md` |
 | AWS Strands Decider | `models/strands-decider.md` |
 | Tev1, decider-2b, Liquid d1, Databricks `ai_decide`, Mercury Decide, GLiNER2.5-Decide | `models/others.md` |
 

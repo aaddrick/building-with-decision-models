@@ -71,4 +71,4 @@ def walk(client: TypeSafeClient, doc: str, tree: dict, k: int = 3) -> list[tuple
 - Cribrix, a relevance Score plus "answers it" and "injection" Nouls per chunk, then a Noul per claim. Reported 82% → 100% correct on 62 questions: [david96182/cribrix](https://github.com/david96182/cribrix)
 - jsort, ranks texts on a plain-English criterion with pairwise Nouls in a Swiss tournament and Bradley-Terry, about 5 comparisons per text: [keltokhy/jsort](https://github.com/keltokhy/jsort)
 
-More projects (41 entries), grouped by sub-type (Rerank and retrieval, Match and dedupe, Walk graphs and taxonomies, Ranking people and things): `prior-art/projects/ranking-and-matching.md`.
+More projects (42 entries), grouped by sub-type (Rerank and retrieval, Match and dedupe, Walk graphs and taxonomies, Ranking people and things): `prior-art/projects/ranking-and-matching.md`.

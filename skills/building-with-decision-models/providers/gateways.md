@@ -11,6 +11,7 @@ The live docs win on any conflict: `https://openrouter.ai/docs/llms.txt`, `https
 | Cloudflare Clef | `cloudflare/clef`, $0.24/M, 65,536, text+image [5] | not listed [8] | not listed [11] |
 | Cloudflare Clef-flash | `cloudflare/clef-flash`, $0.09/M, 65,536, text+image [5] | not listed | not listed |
 | Perplexity decider | `perplexity/pplx-decider-v1-27b` (endpoint `…-20261001`), **$0.04/M**, 262,144, text+image [5]. `pplx-decider-v1.1-27b` returns 404 on the endpoints API. | not listed | not listed |
+| Microsoft-Decision-1 | `microsoft/microsoft-decision-1` (responses report `…-20261009`), $0.042/M, 33K, served by Azure. The card names the Decisions API; whether `/api/v1/systemone` routes it is not documented. See microsoft-foundry.md. | not checked | not checked |
 | Laya (Convai) | not checked | `convaiinnovations/laya`, `convaiinnovations/laya-free`; free; 8,192 context [8] | not listed |
 | Liquid d1 | not checked | `liquid/d1`, $0.04/M, 65,536 [8] | not listed |
 | OpenAI `gpt-6-luna` | chat model only [5] | language model only [8] | not checked |

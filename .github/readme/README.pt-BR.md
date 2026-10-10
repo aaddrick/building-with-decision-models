@@ -25,7 +25,7 @@
 </p>
 
 > [!NOTE]
-> Esta é uma skill não oficial, feita pela comunidade. Ela não foi criada, revisada nem endossada pela TypeSafe AI, Cloudflare, Perplexity, OpenAI, Databricks, AWS, Ollama ou qualquer outro provedor que ela cobre. Veja [Como esta skill se relaciona com a skill oficial da TypeSafe](#como-esta-skill-se-relaciona-com-a-skill-oficial-da-typesafe).
+> Esta é uma skill não oficial, feita pela comunidade. Ela não foi criada, revisada nem endossada pela TypeSafe AI, Cloudflare, Perplexity, OpenAI, Microsoft, Databricks, AWS, Ollama ou qualquer outro provedor que ela cobre. Veja [Como esta skill se relaciona com a skill oficial da TypeSafe](#como-esta-skill-se-relaciona-com-a-skill-oficial-da-typesafe).
 
 Os agentes de código tratam os modelos de decisão como mais um modelo de chat. Esta skill ensina o agente a projetar para eles: perguntas tipadas, confiança calibrada, as diferenças entre os provedores e links para mais de 450 projetos da comunidade, organizados pela forma como funcionam, com um esboço de código para cada padrão. Ela se instala no Claude Code, no Claude Desktop e no claude.ai, no Codex, no Antigravity CLI, no Cursor, no Devin CLI, no Factory Droid, no Gemini CLI, no GitHub Copilot CLI, no Grok Build CLI, no Hermes Agent, no Kimi Code, no OpenCode, no Pi, no Qwen Code, no Muse e no Muse Code.
 
@@ -39,7 +39,7 @@ O [Jev](https://docs.typesafe.ai/introduction), da TypeSafe, inaugurou a categor
 
 | Tipo | Modelos | Como chamar |
 |---|---|---|
-| Hospedado | TypeSafe Jev, Cloudflare Clef e Clef-flash, Perplexity pplx-decider, OpenAI Decisions API (`gpt-6-luna`), System1 Models, Strom | API HTTP, cada um com a sua chave |
+| Hospedado | TypeSafe Jev, Cloudflare Clef e Clef-flash, Perplexity pplx-decider, OpenAI Decisions API (`gpt-6-luna`), Microsoft-Decision-1 on Microsoft Foundry, System1 Models, Strom | API HTTP, cada um com a sua chave |
 | No seu data warehouse | Databricks `ai_decide()` | Função SQL ou REST |
 | Na sua máquina | Nimble e Tev1 via Ollama, Kev, Laya, Strands Decider, CLM-8B | Servidor local, sem chave |
 | Por um único gateway | OpenRouter, Vercel AI Gateway, LLM Gateway, Pydantic AI | Uma chave ou um cliente para vários modelos |
@@ -516,6 +516,7 @@ Um modelo local confere o formato da requisição de graça. A precisão e a cal
 | Cloudflare Clef | `CLOUDFLARE_AUTH_TOKEN` e `CLOUDFLARE_ACCOUNT_ID` | Painel da Cloudflare, Workers AI |
 | Perplexity pplx-decider | `PERPLEXITY_API_KEY` | Configurações da API da Perplexity |
 | OpenAI Decisions API | `OPENAI_API_KEY` | Plataforma da OpenAI |
+| Microsoft-Decision-1 (Microsoft Foundry) | `AZURE_API_KEY` or an Entra token, plus `AZURE_ENDPOINT` and `DEPLOYMENT_NAME` | ai.azure.com, deployment details page |
 | System1 Models | `SYSTEM1_API_KEY` | system1models.ai |
 | Strom (Uprelic) | `UPRELIC_API_KEY` | platform.uprelic.com |
 | OpenRouter | `OPENROUTER_API_KEY` | openrouter.ai |
@@ -680,7 +681,7 @@ A skill carrega em camadas, então o agente lê só o que a tarefa pede.
 |---|---|---|
 | `SKILL.md` | Qual provedor e qual primitiva escolher, 11 regras de design, como usar probabilidades e confiança, como trocar de modelo com segurança, erros comuns | Em toda tarefa com modelos de decisão |
 | `providers/jev.md` | O contrato de referência `/v1/systemone`: API HTTP, SDKs de Python e JavaScript, limites, erros, variáveis de ambiente | Quando escreve o código |
-| `providers/*.md` | 10 arquivos de provedor (Clef, Perplexity, OpenAI, Databricks, Ollama e Kev, hosts na UE, gateways, Pydantic AI, modelos de pesos abertos): como cada um difere do Jev, com fontes | Quando o alvo é esse provedor |
+| `providers/*.md` | 11 arquivos de provedor (Clef, Perplexity, OpenAI, Microsoft Foundry, Databricks, Ollama e Kev, hosts na UE, gateways, Pydantic AI, modelos de pesos abertos): como cada um difere do Jev, com fontes | Quando o alvo é esse provedor |
 | `models/*.md` | 9 arquivos de modelo (Clef, Nimble, Laya, Kev, CLM-8B, pplx-decider, GPT-6 Luna, Strands Decider e os demais) mais um índice: os limites encontrados na prática, a calibração, onde cada modelo vai bem e onde falha, e notas por formato | Quando roda em um modelo que não é o Jev |
 | `patterns.md` | Os 4 padrões oficiais e as técnicas de 18 cookbooks, com seus limiares | Quando projeta um fluxo |
 | `choosing-and-switching-models.md` | Como comparar modelos, reajustar os limiares, rodar o novo modelo em sombra e trocar, com as lições de quem trocou e os benchmarks que existem | Quando escolhe, compara ou troca de modelo |
