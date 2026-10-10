@@ -23,6 +23,7 @@ Comparing or benchmarking decision models against each other (indexes, head-to-h
 - Tessl verifiers, 2,725 tests, 85.9% agreement: [HN](https://news.ycombinator.com/item?id=49821631)
 - AITA benchmark, 2nd of 7: [HN](https://news.ycombinator.com/item?id=49821894)
 - Every's editorial vibe check: [every.to](https://every.to/vibe-check/mini-vibe-check-typesafe-s-jev-judged-everything-i-ve-written-in-0-7-seconds)
+- Two-model yes/no jury, p > 0.40 votes yes: Jev alone 102–103 of 106 with 3 false alarms, Decision-1 98 with 6, the jury 99 (Jev, Microsoft-Decision-1): [chasef07/abita_s2s#148](https://github.com/chasef07/abita_s2s/pull/148)
 - Second-opinion verification of other models' outputs (Good Start Labs): [HN](https://news.ycombinator.com/item?id=49718890)
 - Rubric judges vs LLMs, 9 panels. LLM judges cost 16–325× more. A cascade gains at most 2.7 points because errors are correlated: [arXiv 2609.29769](https://arxiv.org/abs/2609.29769)
 - Accept when confident, escalate when unsure. Within 3 points of GPT-6 at 36% of the cost, and the cascade gains 0.9 points at 41% of the cost: [arXiv 2609.26550](https://arxiv.org/abs/2609.26550)

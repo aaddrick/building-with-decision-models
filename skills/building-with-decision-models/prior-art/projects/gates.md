@@ -5,6 +5,7 @@ Community projects that use this shape, grouped by sub-type. Numbers are author-
 **Agent tool and command gates**
 - LangChain AutoModeMiddleware, a Noul blocks risky tool calls: [langchain.com](https://www.langchain.com/blog/building-a-harness-with-jev)
 - hermes-jev-approvals, 8.7× faster, 4.4× fewer prompts: [anpicasso/hermes-jev-approvals](https://github.com/anpicasso/hermes-jev-approvals)
+- everruns Decisions driver: Decision-1 as the org's default decision model for guardrail and Slack checks, through Foundry with `api-key` auth (Microsoft-Decision-1): [everruns/everruns#4441](https://github.com/everruns/everruns/pull/4441)
 - jev-guard, three questions before every call (deny/ask/allow): [blacksinisterx/jev-guard](https://github.com/blacksinisterx/jev-guard)
 - actionreflex: [eyenpi/actionreflex](https://github.com/eyenpi/actionreflex). pi-warden: [DevMortimer/pi-warden](https://github.com/DevMortimer/pi-warden)
 - Agent Chaperone, tool calls + results + injection: [HN](https://news.ycombinator.com/item?id=49789538)

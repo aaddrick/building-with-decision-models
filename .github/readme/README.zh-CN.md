@@ -25,7 +25,7 @@
 </p>
 
 > [!NOTE]
-> 这是一个非官方的社区技能。它不是由 TypeSafe AI、Cloudflare、Perplexity、OpenAI、Databricks、AWS、Ollama 或它涉及的任何其他提供商制作、审核或认可的。参见[与官方 TypeSafe 技能的关系](#与官方-typesafe-技能的关系)。
+> 这是一个非官方的社区技能。它不是由 TypeSafe AI、Cloudflare、Perplexity、OpenAI、Microsoft、Databricks、AWS、Ollama 或它涉及的任何其他提供商制作、审核或认可的。参见[与官方 TypeSafe 技能的关系](#与官方-typesafe-技能的关系)。
 
 编程智能体把决策模型当作又一个聊天模型。这个技能教它们为决策模型做设计：类型化的问题、校准过的置信度、各家提供商之间的差别，以及指向 450 多个社区项目的链接，按工作方式分类，每种模式附一个代码草图。它可以安装在 Claude Code、Claude Desktop 和 claude.ai、Codex、Antigravity CLI、Cursor、Devin CLI、Factory Droid、Gemini CLI、GitHub Copilot CLI、Grok Build CLI、Hermes Agent、Kimi Code、OpenCode、Pi、Qwen Code、Muse 和 Muse Code 中。
 
@@ -39,7 +39,7 @@ TypeSafe 的 [Jev](https://docs.typesafe.ai/introduction) 在 2026-09-15 开创�
 
 | 类型 | 模型 | 调用方式 |
 |---|---|---|
-| 托管 | TypeSafe Jev、Cloudflare Clef 和 Clef-flash、Perplexity pplx-decider、OpenAI Decisions API（`gpt-6-luna`）、System1 Models、Strom | HTTP API，各有各的密钥 |
+| 托管 | TypeSafe Jev、Cloudflare Clef 和 Clef-flash、Perplexity pplx-decider、OpenAI Decisions API（`gpt-6-luna`）、Microsoft Foundry 上的 Microsoft-Decision-1、System1 Models、Strom | HTTP API，各有各的密钥 |
 | 在你的数据仓库里 | Databricks `ai_decide()` | SQL 函数或 REST |
 | 在你的机器上 | 通过 Ollama 运行的 Nimble 和 Tev1、Kev、Laya、Strands Decider、CLM-8B | 本地服务器，无需密钥 |
 | 通过一个网关 | OpenRouter、Vercel AI Gateway、LLM Gateway、Pydantic AI | 一个密钥或一个客户端对应多个模型 |
@@ -516,6 +516,7 @@ curl -s http://localhost:11434/api/version
 | Cloudflare Clef | `CLOUDFLARE_AUTH_TOKEN` 和 `CLOUDFLARE_ACCOUNT_ID` | Cloudflare 控制台，Workers AI |
 | Perplexity pplx-decider | `PERPLEXITY_API_KEY` | Perplexity API 设置 |
 | OpenAI Decisions API | `OPENAI_API_KEY` | OpenAI 平台 |
+| Microsoft-Decision-1 (Microsoft Foundry) | `AZURE_API_KEY` or an Entra token, plus `AZURE_ENDPOINT` and `DEPLOYMENT_NAME` | ai.azure.com, deployment details page |
 | System1 Models | `SYSTEM1_API_KEY` | system1models.ai |
 | Strom (Uprelic) | `UPRELIC_API_KEY` | platform.uprelic.com |
 | OpenRouter | `OPENROUTER_API_KEY` | openrouter.ai |
@@ -680,7 +681,7 @@ $env:TYPESAFE_API_KEY.Length
 |---|---|---|
 | `SKILL.md` | 选哪个提供商和哪种原语、11 条设计规则、如何使用概率和置信度、如何安全地更换模型、常见错误 | 每个决策模型任务 |
 | `providers/jev.md` | 作为参照的 `/v1/systemone` 契约：HTTP API、Python 和 JavaScript SDK、限制、错误、环境变量 | 写代码时 |
-| `providers/*.md` | 10 个提供商文件（Clef、Perplexity、OpenAI、Databricks、Ollama 和 Kev、欧盟托管商、网关、Pydantic AI、开放权重模型）：各自与 Jev 有何不同，并附来源 | 针对该提供商时 |
+| `providers/*.md` | 11 个提供商文件（Clef、Perplexity、OpenAI、Microsoft Foundry、Databricks、Ollama 和 Kev、欧盟托管商、网关、Pydantic AI、开放权重模型）：各自与 Jev 有何不同，并附来源 | 针对该提供商时 |
 | `models/*.md` | 9 个模型文件（Clef、Nimble、Laya、Kev、CLM-8B、pplx-decider、GPT-6 Luna、Strands Decider 及其他）加一个索引：实际遇到的限制、校准、每个模型擅长和失败的地方，以及按形态分的笔记 | 在 Jev 以外的模型上运行时 |
 | `patterns.md` | 4 种官方模式，以及来自 18 份 cookbook 的技巧和阈值 | 设计工作流时 |
 | `choosing-and-switching-models.md` | 如何比较模型、重新拟合阈值、影子运行并切换，附换过模型的人的经验和现有的基准测试 | 选择、比较或更换模型时 |

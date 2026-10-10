@@ -25,7 +25,7 @@
 </p>
 
 > [!NOTE]
-> Đây là một skill không chính thức do cộng đồng làm. TypeSafe AI, Cloudflare, Perplexity, OpenAI, Databricks, AWS, Ollama và mọi nhà cung cấp khác mà nó đề cập đều không làm, không duyệt và không bảo trợ nó. Xem [Liên hệ với skill chính thức của TypeSafe](#liên-hệ-với-skill-chính-thức-của-typesafe).
+> Đây là một skill không chính thức do cộng đồng làm. TypeSafe AI, Cloudflare, Perplexity, OpenAI, Microsoft, Databricks, AWS, Ollama và mọi nhà cung cấp khác mà nó đề cập đều không làm, không duyệt và không bảo trợ nó. Xem [Liên hệ với skill chính thức của TypeSafe](#liên-hệ-với-skill-chính-thức-của-typesafe).
 
 Các tác nhân lập trình đối xử với decision model như thêm một chat model nữa. Skill này dạy chúng thiết kế cho đúng loại model này: câu hỏi có kiểu, độ tin cậy đã hiệu chỉnh, khác biệt giữa các nhà cung cấp, và liên kết tới hơn 450 dự án cộng đồng, xếp theo cách chúng hoạt động, mỗi mẫu có một bản phác thảo code. Nó cài được trong Claude Code, Claude Desktop và claude.ai, Codex, Antigravity CLI, Cursor, Devin CLI, Factory Droid, Gemini CLI, GitHub Copilot CLI, Grok Build CLI, Hermes Agent, Kimi Code, OpenCode, Pi, Qwen Code, Muse và Muse Code.
 
@@ -39,7 +39,7 @@ Một decision model, còn gọi là model [System One](https://docs.typesafe.ai
 
 | Loại | Model | Cách gọi |
 |---|---|---|
-| Được host | TypeSafe Jev, Cloudflare Clef và Clef-flash, Perplexity pplx-decider, OpenAI Decisions API (`gpt-6-luna`), System1 Models, Strom | HTTP API, mỗi bên một key riêng |
+| Được host | TypeSafe Jev, Cloudflare Clef và Clef-flash, Perplexity pplx-decider, OpenAI Decisions API (`gpt-6-luna`), Microsoft-Decision-1 on Microsoft Foundry, System1 Models, Strom | HTTP API, mỗi bên một key riêng |
 | Trong kho dữ liệu của bạn | Databricks `ai_decide()` | Hàm SQL hoặc REST |
 | Trên máy của bạn | Nimble và Tev1 qua Ollama, Kev, Laya, Strands Decider, CLM-8B | Server cục bộ, không cần key |
 | Qua một gateway | OpenRouter, Vercel AI Gateway, LLM Gateway, Pydantic AI | Một key hoặc một client cho nhiều model |
@@ -516,6 +516,7 @@ Một model cục bộ kiểm tra dạng request miễn phí. Độ chính xác 
 | Cloudflare Clef | `CLOUDFLARE_AUTH_TOKEN` và `CLOUDFLARE_ACCOUNT_ID` | Bảng điều khiển Cloudflare, Workers AI |
 | Perplexity pplx-decider | `PERPLEXITY_API_KEY` | Cài đặt API của Perplexity |
 | OpenAI Decisions API | `OPENAI_API_KEY` | Nền tảng OpenAI |
+| Microsoft-Decision-1 (Microsoft Foundry) | `AZURE_API_KEY` or an Entra token, plus `AZURE_ENDPOINT` and `DEPLOYMENT_NAME` | ai.azure.com, deployment details page |
 | System1 Models | `SYSTEM1_API_KEY` | system1models.ai |
 | Strom (Uprelic) | `UPRELIC_API_KEY` | platform.uprelic.com |
 | OpenRouter | `OPENROUTER_API_KEY` | openrouter.ai |
@@ -680,7 +681,7 @@ Skill tải theo từng lớp, nên tác nhân chỉ đọc những gì tác v�
 |---|---|---|
 | `SKILL.md` | Chọn nhà cung cấp và primitive nào, 11 quy tắc thiết kế, cách dùng xác suất và độ tin cậy, cách đổi model an toàn, các lỗi thường gặp | Mọi tác vụ dùng decision model |
 | `providers/jev.md` | Hợp đồng tham chiếu `/v1/systemone`: HTTP API, SDK Python và JavaScript, giới hạn, lỗi, biến môi trường | Khi viết code |
-| `providers/*.md` | 10 file nhà cung cấp (Clef, Perplexity, OpenAI, Databricks, Ollama và Kev, các host ở EU, gateway, Pydantic AI, model open-weight): mỗi bên khác Jev thế nào, kèm nguồn | Khi nhắm tới nhà cung cấp đó |
+| `providers/*.md` | 11 file nhà cung cấp (Clef, Perplexity, OpenAI, Microsoft Foundry, Databricks, Ollama và Kev, các host ở EU, gateway, Pydantic AI, model open-weight): mỗi bên khác Jev thế nào, kèm nguồn | Khi nhắm tới nhà cung cấp đó |
 | `models/*.md` | 9 file model (Clef, Nimble, Laya, Kev, CLM-8B, pplx-decider, GPT-6 Luna, Strands Decider và các model còn lại) cùng một file chỉ mục: các giới hạn gặp phải khi dùng thực tế, độ hiệu chỉnh, mỗi model làm tốt và thất bại ở đâu, và ghi chú theo từng dạng | Khi chạy trên một model không phải Jev |
 | `patterns.md` | 4 pattern chính thức và các kỹ thuật từ 18 cookbook, kèm ngưỡng của chúng | Khi thiết kế một workflow |
 | `choosing-and-switching-models.md` | Cách so sánh model, chỉnh lại ngưỡng, chạy thử song song (shadow) rồi chuyển đổi, kèm bài học từ những người đã đổi model và các benchmark hiện có | Khi chọn, so sánh hoặc đổi model |

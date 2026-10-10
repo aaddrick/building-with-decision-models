@@ -4,6 +4,7 @@ Community projects that use this shape, grouped by sub-type. Numbers are author-
 
 **Games**
 - Doom from text state, about 10 Hz, about $7/hour: TypeSafe launch post [typesafe.ai](https://typesafe.ai/blog/introducing-system-one-models-and-jev). Kevin Madura's ViZDoom version, with separate navigation (5 decisions/s) and combat (12 decisions/s) channels: [mattpaige68.substack.com](https://mattpaige68.substack.com/p/a-new-ai-model-just-launched-that)
+- jevman Pac-Man, one move decision per tick: 2,390 mean via Opper with 2.1% fallback moves, 1,298 via one Foundry deployment with 12.6% (Microsoft-Decision-1): [opper-ai/jevman-benchmark#17](https://github.com/opper-ai/jevman-benchmark/pull/17)
 - Wikiracing: link Choice, with a Score pre-rank when there are more than 255 links (same launch post).
 - StarCraft 1998 shareware, mouse/keyboard harness, beat mission 1 in 421 decisions: [phyous/tsai-sc](https://github.com/phyous/tsai-sc)
 - StarCraft II "JEV-Star": [HN](https://news.ycombinator.com/item?id=49834465)

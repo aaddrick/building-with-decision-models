@@ -59,4 +59,4 @@ Comparing or benchmarking decision models against each other (indexes, head-to-h
 - RAGTruth and SummEval vs Opus 5. With a tuned threshold, hallucination accuracy matched at 87% for about 300× less cost. SummEval rank correlation 0.74 vs 0.70: [arize.com](https://arize.com/blog/jev-as-a-judge/)
 - Rubric judges vs LLMs, 9 panels. LLM judges cost 16–325× more. A cascade gains at most 2.7 points because errors are correlated: [arXiv 2609.29769](https://arxiv.org/abs/2609.29769)
 
-More projects (36 entries), grouped by sub-type (Platforms, Tools for managing judgments, Reported judge results, Hallucination and groundedness, Rubric scoring of content, Code review as triage): `prior-art/projects/judges-and-evals.md`.
+More projects (37 entries), grouped by sub-type (Platforms, Tools for managing judgments, Reported judge results, Hallucination and groundedness, Rubric scoring of content, Code review as triage): `prior-art/projects/judges-and-evals.md`.

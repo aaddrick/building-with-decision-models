@@ -25,7 +25,7 @@
 </p>
 
 > [!NOTE]
-> これは非公式のコミュニティ製スキルです。TypeSafe AI、Cloudflare、Perplexity、OpenAI、Databricks、AWS、Ollama をはじめ、扱っているどのプロバイダーも、作成、レビュー、推奨していません。[公式 TypeSafe スキルとの関係](#公式-typesafe-スキルとの関係) も参照してください。
+> これは非公式のコミュニティ製スキルです。TypeSafe AI、Cloudflare、Perplexity、OpenAI、Microsoft、Databricks、AWS、Ollama をはじめ、扱っているどのプロバイダーも、作成、レビュー、推奨していません。[公式 TypeSafe スキルとの関係](#公式-typesafe-スキルとの関係) も参照してください。
 
 コーディングエージェントは、判断モデルをチャットモデルの 1 つとして扱います。このスキルは、判断モデルに合わせた設計をエージェントに教えます。型付きの質問、較正された確信度、プロバイダーごとの違い、そして仕組みごとに整理した 450 を超えるコミュニティプロジェクトへのリンクと、パターンごとのコードスケッチです。Claude Code、Claude Desktop と claude.ai、Codex、Antigravity CLI、Cursor、Devin CLI、Factory Droid、Gemini CLI、GitHub Copilot CLI、Grok Build CLI、Hermes Agent、Kimi Code、OpenCode、Pi、Qwen Code、Muse、Muse Code にインストールできます。
 
@@ -39,7 +39,7 @@
 
 | 種類 | モデル | 呼び出し方 |
 |---|---|---|
-| ホスト型 | TypeSafe Jev、Cloudflare Clef と Clef-flash、Perplexity pplx-decider、OpenAI Decisions API (`gpt-6-luna`)、System1 Models、Strom | HTTP API。それぞれ専用のキー |
+| ホスト型 | TypeSafe Jev、Cloudflare Clef と Clef-flash、Perplexity pplx-decider、OpenAI Decisions API (`gpt-6-luna`)、Microsoft Foundry の Microsoft-Decision-1、System1 Models、Strom | HTTP API。それぞれ専用のキー |
 | データウェアハウス内 | Databricks `ai_decide()` | SQL 関数または REST |
 | 自分のマシン上 | Ollama 経由の Nimble と Tev1、Kev、Laya、Strands Decider、CLM-8B | ローカルサーバー。キー不要 |
 | 1 つのゲートウェイ経由 | OpenRouter、Vercel AI Gateway、LLM Gateway、Pydantic AI | 1 つのキーか 1 つのクライアントで複数のモデル |
@@ -516,6 +516,7 @@ curl -s http://localhost:11434/api/version
 | Cloudflare Clef | `CLOUDFLARE_AUTH_TOKEN` と `CLOUDFLARE_ACCOUNT_ID` | Cloudflare ダッシュボードの Workers AI |
 | Perplexity pplx-decider | `PERPLEXITY_API_KEY` | Perplexity の API 設定 |
 | OpenAI Decisions API | `OPENAI_API_KEY` | OpenAI プラットフォーム |
+| Microsoft-Decision-1 (Microsoft Foundry) | `AZURE_API_KEY` or an Entra token, plus `AZURE_ENDPOINT` and `DEPLOYMENT_NAME` | ai.azure.com, deployment details page |
 | System1 Models | `SYSTEM1_API_KEY` | system1models.ai |
 | Strom (Uprelic) | `UPRELIC_API_KEY` | platform.uprelic.com |
 | OpenRouter | `OPENROUTER_API_KEY` | openrouter.ai |
@@ -680,7 +681,7 @@ Dock、スタートメニュー、デスクトップのランチャーから起�
 |---|---|---|
 | `SKILL.md` | どのプロバイダーとプリミティブを選ぶか、11 の設計ルール、確率と確信度の使い方、モデルを安全に切り替える方法、よくある間違い | 判断モデルのタスクのたび |
 | `providers/jev.md` | 基準となる `/v1/systemone` の契約。HTTP API、Python と JavaScript の SDK、制限、エラー、環境変数 | コードを書くとき |
-| `providers/*.md` | 10 のプロバイダーファイル (Clef、Perplexity、OpenAI、Databricks、Ollama と Kev、EU のホスト、ゲートウェイ、Pydantic AI、オープンウェイトのモデル)。それぞれが Jev とどう違うかを出典つきで | そのプロバイダーを対象にするとき |
+| `providers/*.md` | 11 のプロバイダーファイル (Clef、Perplexity、OpenAI、Microsoft Foundry、Databricks、Ollama と Kev、EU のホスト、ゲートウェイ、Pydantic AI、オープンウェイトのモデル)。それぞれが Jev とどう違うかを出典つきで | そのプロバイダーを対象にするとき |
 | `models/*.md` | 9 のモデルファイル (Clef、Nimble、Laya、Kev、CLM-8B、pplx-decider、GPT-6 Luna、Strands Decider、その他) と索引。現場で当たった制限、キャリブレーション、各モデルが得意なことと失敗したこと、形ごとのメモ | Jev 以外のモデルで動かすとき |
 | `patterns.md` | 4 つの公式パターンと 18 のクックブックのテクニック、そのしきい値 | ワークフローを設計するとき |
 | `choosing-and-switching-models.md` | モデルの比較、しきい値の再調整、シャドー運用、切り替えの手順。切り替えた人たちの教訓と既存のベンチマークつき | モデルを選ぶ、比べる、変えるとき |
